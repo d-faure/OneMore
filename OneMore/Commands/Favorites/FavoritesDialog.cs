@@ -38,6 +38,8 @@ namespace River.OneMoreAddIn.Commands.Favorites
 				nameColumn.HeaderText = Resx.word_Name;
 				locationColumn.HeaderText = Resx.FavoritesSheet_locationColumn_HeaderText;
 			}
+
+			DefaultControl = searchBox;
 		}
 
 
@@ -76,7 +78,7 @@ namespace River.OneMoreAddIn.Commands.Favorites
 					gridView.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText =
 						Resx.Favorites_unknown;
 
-					e.CellStyle.BackColor = Color.Pink;
+					e.CellStyle.ForeColor = manager.GetColor("ErrorText");
 					e.FormattingApplied = true;
 				}
 				else if (favorite.Status == FavoriteStatus.Suspect)
@@ -84,7 +86,8 @@ namespace River.OneMoreAddIn.Commands.Favorites
 					gridView.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText =
 						Resx.Favorites_suspect;
 
-					e.CellStyle.BackColor = Color.LightGoldenrodYellow;
+					e.CellStyle.BackColor = manager.GetColor("Info");
+					e.CellStyle.ForeColor = manager.GetColor("InfoText");
 					e.FormattingApplied = true;
 				}
 			}

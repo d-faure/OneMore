@@ -127,11 +127,76 @@ namespace River.OneMoreAddIn.Models
 
 
 		/// <summary>
+		/// Given some text, insert it at the current cursor location or replace the selected
+		/// text on the page.
+		/// </summary>
+		/// <param name="text">The text to insert</param>
+		public void InsertOrReplace(string text)
+		{
+			var cursor = page.GetTextCursor(allowPageTitle: true);
+
+			if (page.SelectionScope == SelectionScope.Region || page.SelectionSpecial)
+			{
+				// replace region or hyperlink/MathML
+				var content = new XElement(ns + "T", new XCData(text));
+				page.ReplaceSelectedWithContent(content);
+			}
+			else if (cursor == null) // && page.SelectionScope == SelectionScope.Empty)
+			{
+				// can't find cursor so append to page
+				var content = new XElement(ns + "T", new XCData(text));
+				page.AddNextParagraph(content);
+			}
+			else
+			{
+				var line = page.Root.Descendants(ns + "T")
+					.FirstOrDefault(e =>
+						e.Attributes().Any(a => a.Name == "selected" && a.Value == "all"));
+
+				if (line is null)
+				{
+					// this case should not happen; should be handled above
+					var content = new XElement(ns + "T", new XCData(text));
+					page.AddNextParagraph(content);
+				}
+				else
+				{
+					if (line.FirstAncestor(ns + "Title", ns + "Outline") is XElement title)
+					{
+						// special case to insert before page Title, used by InsertDate;
+						// if cursor is before first char of title, the entire title is "selected"
+						// so rather than replace the title, just insert before it
+						var first = title.Elements(ns + "OE").Elements(ns + "T").First();
+						var cdata = first.GetCData();
+						cdata.Value = $"{text} {cdata.Value}";
+					}
+					else if (line.Value.Length == 0)
+					{
+						// empty cdata, unselected cursor so just insert
+						line.GetCData().Value = text;
+					}
+					else
+					{
+						// this case should not happen; should be handled above
+						// something is selected so replace it
+						var content = new XElement(ns + "T", new XCData(text));
+						page.ReplaceSelectedWithContent(content);
+					}
+				}
+			}
+		}
+
+
+		/// <summary>
 		/// Extracts all selected content as a single OEChildren element, preserving relative
 		/// indents, table content, etc. The selected content is removedd from the page.
 		/// </summary>
+		/// <param name="targetOutline">
+		/// Optional Outline element to process.
+		/// Default is to process all page content.
+		/// </param>
 		/// <returns>An OEChildren XElement</returns>
-		public async Task<XElement> ExtractSelectedContent()
+		public async Task<XElement> ExtractSelectedContent(XElement targetOutline = null)
 		{
 			var content = new XElement(ns + "OEChildren");
 			//	new XAttribute(XNamespace.Xmlns + OneNote.Prefix, ns.ToString())
@@ -144,14 +209,27 @@ namespace River.OneMoreAddIn.Models
 			// IMPORTANT: Within an OE, no more than exactly one OEContent element
 			// can be selected at a time!
 
-			var runs = page.Root.Elements(ns + "Outline")
-				.Descendants(ns + "OE")
+			var paragraphs = targetOutline is null
+				? page.Root.Elements(ns + "Outline").Descendants(ns + "OE")
+				: targetOutline.Descendants(ns + "OE");
+
+			var runs = paragraphs
 				.Elements()
 				.Where(e =>
 					// tables are handled via their cell contents
 					e.Name.LocalName != "Table" &&
+					e.Name.LocalName != "OEChildren" &&
 					(AllContent || e.Attributes().Any(a => a.Name == "selected" && a.Value == "all")))
 				.ToList();
+
+			if (runs.Any() && AllContent)
+			{
+				// filter out the blank cursor to avoid inadvertently inserting a newline
+				runs = runs.Except(runs.Where(e =>
+					e.Attributes().Any(a => a.Name == "selected" && a.Value == "all") &&
+					e.GetCData().Value == string.Empty))
+					.ToList();
+			}
 
 			// no selections found in body
 			if (!runs.Any())
@@ -246,7 +324,8 @@ namespace River.OneMoreAddIn.Models
 			// to determine if this element should be discarded.
 			runs.Reverse();
 
-			foreach (var run in runs)
+			// List elements will be handled inline along with their associated content
+			foreach (var run in runs.Where(e => e.Name.LocalName != "List"))
 			{
 				var snippet = new Snippet
 				{
@@ -286,7 +365,7 @@ namespace River.OneMoreAddIn.Models
 					}
 					else
 					{
-						parent = run.Parent.Parent;
+						parent = run.Parent?.Parent;
 						if (cell is not null)
 							parent = null;
 
@@ -419,7 +498,7 @@ namespace River.OneMoreAddIn.Models
 
 		private int IndentLevel(XElement element)
 		{
-			if (element is null)
+			if (element is null || element.Parent is null)
 			{
 				return 0;
 			}

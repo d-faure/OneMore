@@ -477,6 +477,10 @@ Invertir</value>
     <value>Número incorrecto de parámetros de función</value>
     <comment>error</comment>
   </data>
+  <data name="CleanRemindersCommand_count" xml:space="preserve">
+    <value>Se limpiaron {0} recordatorios huérfanos</value>
+    <comment>message box</comment>
+  </data>
   <data name="ClearLog_Message" xml:space="preserve">
     <value>¿Borrar el archivo de registro ahora?</value>
     <comment>message box message</comment>
@@ -1003,6 +1007,9 @@ Fuente de la última columna</value>
   <data name="Error_NoAttachments" xml:space="preserve">
     <value>No se encontraron archivos adjuntos en la página</value>
   </data>
+  <data name="Error_SelectContent" xml:space="preserve">
+    <value>Seleccione algún contenido antes de continuar</value>
+  </data>
   <data name="Error_SelectImage" xml:space="preserve">
     <value>Seleccione una imagen antes de invocar este comando</value>
     <comment>error message box</comment>
@@ -1169,12 +1176,13 @@ Porcentaje</value>
   <data name="FormulaDialog_helpBox.Text" xml:space="preserve">
     <value>La fórmula ingresada debe aplicarse a la primera celda seleccionada. Esta fórmula se incrementará automáticamente para las celdas seleccionadas adicionales.
 
-Funciones: abs, acos, asin, atan, atan2, Average, Ceiling, Cos, Cosh, Countif, Exp, Floor, Log, Log10, Max, Median, Min, Mode, Pow, Range, Round, Sign, Sin, Sinh, sqrt, stdev, suma, bronceado, tanh, trunc, varianza
+Funciones: abs, acos, asin, atan, atan2, promedio, techo, cos, cosh, countif, exp, piso, log, log10, max, mediana, min, modo, pow, rango, redondo, signo, sin, sinh, sqrt, stdev, suma, bronceado, tanh, trunc, variación
 
 Operadores: + - / * ^
+Símbolos: PI, E
 Referencia de celda: A1, A2, ... ZZZ999
 Rango de celdas: A1:A22
-Símbolos: PI, E</value>
+Rango relativo en una columna: A1:A-1</value>
   <comment></comment></data>
   <data name="FormulaDialog_selectedLabel.Text" xml:space="preserve">
     <value>Celdas seleccionadas:</value>
@@ -1263,6 +1271,10 @@ La búsqueda de hashtags no estará disponible hasta que se complete.</value>
     <value>Comprobar todo</value>
     <comment>link label</comment>
   </data>
+  <data name="HashtagDialog_hideOfflineMenuItem" xml:space="preserve">
+    <value>Ocultar cuadernos sin conexión</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_introLabel.Text" xml:space="preserve">
     <value>Escribe cualquier parte de uno o más hashtags. Los comodines están implícitos a menos que una etiqueta termine con un punto. Se permiten paréntesis y operadores lógicos.</value>
     <comment>label</comment>
@@ -1288,14 +1300,62 @@ La búsqueda de hashtags no estará disponible hasta que se complete.</value>
     <comment>menu item</comment>
   </data>
   <data name="HashtagDialog_scopeBox.Text" xml:space="preserve">
-    <value>Todo
+    <value>Todos los cuadernos
 este cuaderno
 Esta sección</value>
     <comment>combobox</comment>
   </data>
+  <data name="HashtagDialog_sensitiveTip" xml:space="preserve">
+    <value>Búsqueda que distingue entre mayúsculas y minúsculas</value>
+    <comment>tooltip</comment>
+  </data>
+  <data name="HashtagDialog_showOfflineMenuItem" xml:space="preserve">
+    <value>Mostrar cuadernos sin conexión</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_uncheckAllLink.Text" xml:space="preserve">
     <value>Desmarcar todo</value>
     <comment>link label</comment>
+  </data>
+  <data name="HashtaggerDialog.Text" xml:space="preserve">
+    <value>Etiquetas</value>
+    <comment>dialog title</comment>
+  </data>
+  <data name="HashtaggerDialog_bankBox.Text" xml:space="preserve">
+    <value>Agregar al banco de etiquetas en la parte superior de la página</value>
+    <comment>checkbox</comment>
+  </data>
+  <data name="HashtaggerDialog_cloudGroup.Text" xml:space="preserve">
+    <value>Todos los hashtags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_commonGroup.Text" xml:space="preserve">
+    <value>Palabras comunes en esta página</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_hideCommonMenuItem" xml:space="preserve">
+    <value>Ocultar palabras comunes</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_hideRecentMenuItem" xml:space="preserve">
+    <value>Ocultar usado recientemente</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_recentGroup.Text" xml:space="preserve">
+    <value>Etiquetas utilizadas recientemente</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_showCommonMenuItem" xml:space="preserve">
+    <value>Mostrar palabras comunes</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_showRecentMenuItem" xml:space="preserve">
+    <value>Mostrar usado recientemente</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_tagsLabel.Text" xml:space="preserve">
+    <value>Etiquetas</value>
+    <comment>label</comment>
   </data>
   <data name="HashtagSheet_disabledBox.Text" xml:space="preserve">
     <value>Deshabilite el servicio de hashtag. Esto también deshabilitará la búsqueda de hashtags.</value>
@@ -1315,6 +1375,10 @@ Esta sección</value>
   </data>
   <data name="HashtagSheet_prescheduled" xml:space="preserve">
     <value>Hay un análisis programado para {0}. Utilice las opciones siguientes para cambiar esto o presione Cancelar para mantener el horario actual.</value>
+  </data>
+  <data name="HashtagSheet_resetTooltip" xml:space="preserve">
+    <value>Avanzado: restablecer el indicador de actualización</value>
+    <comment>tooltip</comment>
   </data>
   <data name="HashtagSheet_scanNotebooks" xml:space="preserve">
     <value>Programe un análisis incremental de sus cuadernos recién agregados</value>
@@ -1585,11 +1649,11 @@ Fondo amarillo</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCNotebook" xml:space="preserve">
-    <value>Tabla de contenido: cuaderno {0}</value>
+    <value>Tabla de contenido📓 {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCSections" xml:space="preserve">
-    <value>Tabla de contenido: sección {0}</value>
+    <value>Tabla de contenido § {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_Top" xml:space="preserve">
@@ -1647,6 +1711,24 @@ Título personalizado 3</value>
   <data name="InsertTocDialog_topBox.Text" xml:space="preserve">
     <value>Agregue un enlace a cada encabezado para saltar a la parte superior de la página</value>
     <comment>checkbox</comment>
+  </data>
+  <data name="InsertTocForNotebook_RefreshQuestion" xml:space="preserve">
+    <value>Hay una página de índice para este cuaderno. Puede actualizar esa página o crear una nueva.
+
+¿Quieres actualizar la página existente?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForPage_ClearToc" xml:space="preserve">
+    <value>No hay títulos en esta página. Sin embargo, hay una tabla de contenidos.
+
+¿Le gustaría eliminar la tabla de contenidos de esta página?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForSection_RefreshQuestion" xml:space="preserve">
+    <value>Hay una página de índice para esta sección. Puede actualizar esa página o crear una nueva.
+
+¿Quieres actualizar la página existente?</value>
+    <comment>message box</comment>
   </data>
   <data name="JoinParagraphCommand_Select" xml:space="preserve">
     <value>Seleccione dos o más líneas para unir</value>
@@ -1825,6 +1907,10 @@ Título personalizado 3</value>
   <data name="NetwordConnectionUnavailable" xml:space="preserve">
     <value>La conexión de red no está disponible</value>
     <comment>error</comment>
+  </data>
+  <data name="NextUnreadPageCommand_nomore" xml:space="preserve">
+    <value>No se encontraron páginas no leídas en esa dirección.</value>
+    <comment>message</comment>
   </data>
   <data name="NumberingPage_Message" xml:space="preserve">
     <value>Página de numeración {0}</value>
@@ -2057,6 +2143,12 @@ En esta sección</value>
     <value>Enchufar</value>
     <comment>Open File Dialog title</comment>
   </data>
+  <data name="Plugin_trialCompleted" xml:space="preserve">
+    <value>Prueba completada
+
+Caché: {0}</value>
+    <comment>message</comment>
+  </data>
   <data name="Plugin_Unsuccessful" xml:space="preserve">
     <value>El complemento no se completó correctamente. </value>
     <comment>error message</comment>
@@ -2111,16 +2203,27 @@ En esta sección</value>
   </data>
   <data name="PluginDialog_targetBox.Text" xml:space="preserve">
     <value>Página actual
-Cuaderno actual</value>
+Sección actual y sus páginas.
+Cuaderno actual y sus secciones.
+Cuaderno actual y sus páginas.
+Todos los cuadernos y sus páginas.</value>
     <comment>combobox</comment>
   </data>
   <data name="PluginDialog_timeoutLabel.Text" xml:space="preserve">
     <value>Tmeout</value>
     <comment>label</comment>
   </data>
+  <data name="PluginDialog_trialBox.Text" xml:space="preserve">
+    <value>Ejecución de prueba: mantenga el archivo de caché y no actualice OneNote</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="PluginDialog_updateRadio.Text" xml:space="preserve">
     <value>Actualizar la página actual</value>
     <comment>radio button</comment>
+  </data>
+  <data name="PluginDialog_userArgsLabel.Text" xml:space="preserve">
+    <value>Argumentos del usuario</value>
+    <comment>label</comment>
   </data>
   <data name="PluginsSheet_ConfirmDelete" xml:space="preserve">
     <value>Eliminar el complemento "{0}"</value>
@@ -2657,8 +2760,16 @@ Seleccione No para mantener una línea vacía entre los párrafos</value>
     <value>Comandos de fórmula</value>
     <comment>checkbox</comment>
   </data>
+  <data name="RibbonBarSheet_hashtagsIconBox.Text" xml:space="preserve">
+    <value>Mostrar solo íconos para comandos de hashtag</value>
+    <comment>settings dialog, ribbon bar options</comment>
+  </data>
+  <data name="RibbonBarSheet_hashtagsRibbonBox.Text" xml:space="preserve">
+    <value>Comandos de hashtag</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="RibbonBarSheet_introBox.Text" xml:space="preserve">
-    <value>Elija qué comandos incluir en la barra de la cinta y si mostrar iconos o iconos y etiquetas. </value>
+    <value>Elija una agrupación preestablecida opcional para agregar a la barra de la cinta</value>
     <comment>settings dialog, ribbon bar options</comment>
   </data>
   <data name="RibbonBarSheet_positionBox.Text" xml:space="preserve">
@@ -2729,6 +2840,14 @@ Después del último grupo</value>
   <data name="ribCleanMenu_Label" xml:space="preserve">
     <value>Limpiar</value>
     <comment>Ribbon OneMore menu item</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Label" xml:space="preserve">
+    <value>Recordatorios limpios</value>
+    <comment>ribbon reminders</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Screentip" xml:space="preserve">
+    <value>Limpiar recordatorios rotos en esta página</value>
+    <comment>ribbon reminders</comment>
   </data>
   <data name="ribClearBackgroundButton_Label" xml:space="preserve">
     <value>Color de fondo claro</value>
@@ -2851,6 +2970,14 @@ Después del último grupo</value>
   <data name="ribCopyLinkToParagraphButton_Screentip" xml:space="preserve">
     <value>Copiar un hipervínculo al párrafo actual</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Label" xml:space="preserve">
+    <value>Copiar contenido seleccionado</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Screentip" xml:space="preserve">
+    <value>Copiar el contenido seleccionado a una nueva página</value>
+    <comment>ribbon page</comment>
   </data>
   <data name="ribCrawlWebPageButton_Label" xml:space="preserve">
     <value>Importar hipervínculos</value>
@@ -3071,6 +3198,14 @@ Después del último grupo</value>
   <data name="ribGetImagesButton_Screentip" xml:space="preserve">
     <value>Descargar e insertar imágenes referenciadas</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribHashtaggerButton_Label" xml:space="preserve">
+    <value>Insertar hashtags</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribHashtaggerButton_Screentip" xml:space="preserve">
+    <value>Elija de una lista inteligente de palabras y etiquetas para insertar hashtags</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribHighlightButton_Label" xml:space="preserve">
     <value>Resaltador giratorio</value>
@@ -3380,6 +3515,14 @@ Después del último grupo</value>
     <value>Mover las páginas seleccionadas al final de la lista</value>
     <comment>ribbon page</comment>
   </data>
+  <data name="ribMovePageContentButton_Label" xml:space="preserve">
+    <value>Mover contenido seleccionado</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribMovePageContentButton_Screentip" xml:space="preserve">
+    <value>Mover el contenido seleccionado a una nueva página</value>
+    <comment>ribbon page</comment>
+  </data>
   <data name="ribMovePageTopButton_Label" xml:space="preserve">
     <value>Mover hacia arriba</value>
     <comment>ribbon page</comment>
@@ -3411,6 +3554,14 @@ Después del último grupo</value>
   <data name="ribNewStyleButton_Screentip" xml:space="preserve">
     <value>Crear un nuevo estilo a partir de la selección actual</value>
     <comment>ribbon styles</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Label" xml:space="preserve">
+    <value>Siguiente página no leída</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Pasar a la siguiente página no leída</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribNoSpellCheckButton_Screentip" xml:space="preserve">
     <value>Desactivar el corrector ortográfico para toda la página (F4)</value>
@@ -3542,6 +3693,14 @@ Después del último grupo</value>
   <data name="ribPreviewMarkdownButton_Screentip" xml:space="preserve">
     <value>Vista previa de la página o texto seleccionado como rebaja</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Label" xml:space="preserve">
+    <value>Página anterior no leída</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Ir a la página anterior no leída</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribPronunciateButton_Label" xml:space="preserve">
     <value>Insertar pronunciación</value>
@@ -3797,6 +3956,14 @@ Después del último grupo</value>
   <data name="ribSelectImagesButton_Screentip" xml:space="preserve">
     <value>Seleccionar todas las imágenes de la página</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribSelectInkButton_Label" xml:space="preserve">
+    <value>Seleccionar toda la tinta</value>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Screentip" xml:space="preserve">
+    <value>Seleccionar toda la tinta en la página.</value>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectStyleButton_Label" xml:space="preserve">
     <value>Seleccionar texto similar</value>
@@ -4832,6 +4999,9 @@ Ahora se abrirá el cuadro de diálogo Buscar hashtags.</value>
   <data name="word_Caption" xml:space="preserve">
     <value>Subtítulo</value>
   </data>
+  <data name="word_Clear" xml:space="preserve">
+    <value>Claro</value>
+  </data>
   <data name="word_Close" xml:space="preserve">
     <value>Cerca</value>
   </data>
@@ -4873,6 +5043,9 @@ Ahora se abrirá el cuadro de diálogo Buscar hashtags.</value>
   </data>
   <data name="word_Element" xml:space="preserve">
     <value>Elemento</value>
+  </data>
+  <data name="word_Empty" xml:space="preserve">
+    <value>Vacío</value>
   </data>
   <data name="word_Extract" xml:space="preserve">
     <value>Extracto</value>

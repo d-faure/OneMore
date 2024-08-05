@@ -36,8 +36,11 @@ namespace River.OneMoreAddIn.Settings
 					"scheduleLink",
 					"warningBox",
 					"upgradeLink",
+					"resetLink=word_Reset",
 					"disabledBox"
 				});
+
+				tooltip.SetToolTip(resetLink, Resx.HashtagSheet_resetTooltip);
 			}
 
 			var settings = provider.GetCollection(Name);
@@ -94,7 +97,9 @@ namespace River.OneMoreAddIn.Settings
 			base.OnLoad(e);
 
 			var converter = new LegacyTaggingConverter();
-			upgradeLink.Enabled = await converter.NeedsConversion();
+			var needsConversion = await converter.NeedsConversion();
+			upgradeLink.Enabled = needsConversion;
+			resetLink.Visible = !needsConversion;
 		}
 
 
@@ -116,7 +121,21 @@ namespace River.OneMoreAddIn.Settings
 			if (upgraded)
 			{
 				upgradeLink.Enabled = false;
+				resetLink.Visible = true;
 			}
+		}
+
+
+		private void ResetUpgradeCheck(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			// this will save settings.xml
+			LegacyTaggingConverter.ResetUpgradeCheck();
+
+			// now update local in-memory copy of settings
+			provider.RemoveCollection("tagging");
+
+			upgradeLink.Enabled = true;
+			resetLink.Visible = false;
 		}
 
 

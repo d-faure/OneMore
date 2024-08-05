@@ -147,6 +147,8 @@
     </Compile>
     <Compile Include="Commands\Edit\ConvertMarkdownCommand.cs" />
     <Compile Include="Commands\Edit\CopyAsTextCommand.cs" />
+    <Compile Include="Commands\Images\SelectInkCommand.cs" />
+    <Compile Include="Commands\Navigator\NextUnreadPageCommand.cs" />
     <Compile Include="Commands\Page\DuplicateLineCommand.cs" />
     <Compile Include="Commands\Edit\PreviewMarkdownCommand.cs" />
     <Compile Include="Commands\File\FileQuickNotesCommand.cs" />
@@ -183,8 +185,10 @@
     </Compile>
     <Compile Include="Commands\Navigator\PinPageCommand.cs" />
     <Compile Include="Commands\Page\DuplicatePageCommand.cs" />
+    <Compile Include="Commands\Page\ExtractContentCommand.cs" />
     <Compile Include="Commands\Page\MovePageCommand.cs" />
     <Compile Include="Commands\References\HyperlinkProvider.cs" />
+    <Compile Include="Commands\Reminders\CleanRemindersCommand.cs" />
     <Compile Include="Commands\Snippets\Emoji\Emojis.cs" />
     <Compile Include="Commands\Settings\ColorizerSheet.cs">
       <SubType>UserControl</SubType>
@@ -222,6 +226,14 @@
     <Compile Include="Commands\Settings\ImagesSheet.Designer.cs">
       <DependentUpon>ImagesSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commands\Snippets\TocGenerators\HierarchyTocGenerator.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\NotebookTocGenerator.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\PageTocGenerator.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\SectionTocGenerator.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\TocCommon.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\TocGenerator.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\TocParameters.cs" />
+    <Compile Include="Commands\Snippets\TocGenerators\TocTitleStyles.cs" />
     <Compile Include="Commands\Styles\PageColorCommand.cs" />
     <Compile Include="Commands\Styles\PageColorDialog.cs">
       <SubType>Form</SubType>
@@ -253,6 +265,13 @@
     </Compile>
     <Compile Include="Commands\Tagging\HashtagContextControl.Designer.cs">
       <DependentUpon>HashtagContextControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\Tagging\HashtaggerCommand.cs" />
+    <Compile Include="Commands\Tagging\HashtaggerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commands\Tagging\HashtaggerDialog.Designer.cs">
+      <DependentUpon>HashtaggerDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Commands\Tagging\HashtagScanCommand.cs" />
     <Compile Include="Commands\Tagging\LegacyTaggingConverter.cs" />
@@ -293,16 +312,19 @@
     <Compile Include="Commands\Tools\QuickPaletteCommand.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\Extensions\ArrayExtensions.cs" />
+    <Compile Include="Helpers\Extensions\DoubleExtensions.cs" />
     <Compile Include="Helpers\Extensions\FontFamilyExtensions.cs" />
     <Compile Include="Helpers\Extensions\GraphicsExtensions.cs" />
     <Compile Include="Helpers\Extensions\HashAlgorithmExtensions.cs" />
     <Compile Include="Helpers\Extensions\ScreenExtensions.cs" />
     <Compile Include="Helpers\Heatmap.cs" />
+    <Compile Include="Commands\Tagging\HashtagNotebook.cs" />
     <Compile Include="Models\OneImage.cs" />
     <Compile Include="Models\KnownSchemaAttributes.cs" />
     <Compile Include="Models\PageEditor.cs" />
     <Compile Include="AddInHotkeys.cs" />
     <Compile Include="Models\PageReader.cs" />
+    <Compile Include="Models\SectionEditor.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1154,6 +1176,9 @@
     <Content Include="Commands\Navigator\Images\Swap-Up-20.png" />
     <Content Include="Commands\Tagging\HashtagsDB.sql" />
     <Content Include="Commands\Tagging\x.png" />
+    <EmbeddedResource Include="Commands\Tagging\HashtaggerDialog.resx">
+      <DependentUpon>HashtaggerDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Commands\Tagging\HashtagScheduler.resx">
       <DependentUpon>HashtagScheduler.cs</DependentUpon>
     </EmbeddedResource>
@@ -1298,6 +1323,7 @@
     <Content Include="Properties\Images\FolderClose.png" />
     <Content Include="Properties\Images\FolderOpen.png" />
     <None Include="Properties\Images\Grid40.png" />
+    <Content Include="Properties\Images\HashtagsRibbon.png" />
     <Content Include="Properties\Menu\m_Bold.png" />
     <Content Include="Properties\Menu\m_Copy.png" />
     <Content Include="Properties\Menu\m_Delete.png" />
@@ -1481,6 +1507,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Commands\Tagging\HashtagDialog.resx">
       <DependentUpon>HashtagDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Commands\Tagging\HashtagErrorControl.resx">
       <DependentUpon>HashtagErrorControl.cs</DependentUpon>

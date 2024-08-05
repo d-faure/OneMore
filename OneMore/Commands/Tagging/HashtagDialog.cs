@@ -19,6 +19,8 @@ namespace River.OneMoreAddIn.Commands
 
 	internal partial class HashtagDialog : MoreForm
 	{
+		private const string SettingsKey = "Hashtags";
+
 		private const string T0 = "0001-01-01T00:00:00.0000Z";
 
 		private readonly MoreAutoCompleteList palette;
@@ -49,6 +51,7 @@ namespace River.OneMoreAddIn.Commands
 					"checkAllLink",
 					"uncheckAllLink",
 					"scanButton",
+					"scheduleButton",
 					"indexButton=word_Index",
 					"moveButton=word_Move",
 					"copyButton=word_Copy",
@@ -56,6 +59,8 @@ namespace River.OneMoreAddIn.Commands
 				});
 
 			}
+
+			DefaultControl = tagBox;
 
 			selections = new List<string>();
 
@@ -76,6 +81,12 @@ namespace River.OneMoreAddIn.Commands
 				.GetCollection("GeneralSheet").Get<bool>("experimental");
 
 			ShowScanTimes();
+
+			ShowOfflineNotebooks = new SettingsProvider()
+				.GetCollection(SettingsKey)
+				.Get("showOffline", true);
+
+			tooltip.SetToolTip(sensitiveBox, Resx.HashtagDialog_sensitiveTip);
 		}
 
 
@@ -83,6 +94,9 @@ namespace River.OneMoreAddIn.Commands
 
 
 		public IEnumerable<string> SelectedPages => selections;
+
+
+		public bool ShowOfflineNotebooks { get; private set; }
 
 
 		private void ShowScanTimes()
@@ -147,14 +161,20 @@ namespace River.OneMoreAddIn.Commands
 		}
 
 
-		private void DoSearchTags(object sender, EventArgs e)
+		private async void DoSearchTags(object sender, EventArgs e)
 		{
-			Task.Run(async () => {  await SearchTags(sender, e); });
+			await SearchTags(sender, e);
+			//Task.Run(async () => { await SearchTags(sender, e); });
 		}
 
 
 		private async Task SearchTags(object sender, EventArgs e)
 		{
+			if (palette.IsPopupVisible)
+			{
+				palette.HidePopup(sender, e);
+			}
+
 			var where = tagBox.Text.Trim();
 			if (where.IsNullOrEmpty())
 			{
@@ -162,15 +182,28 @@ namespace River.OneMoreAddIn.Commands
 			}
 
 			await using var one = new OneNote();
+
+			var loadedBookIDs = (await one.GetNotebooks()).Elements()
+				.Select(e => e.Attribute("ID").Value).ToList();
+
 			var provider = new HashtagProvider();
 			string parsed;
+			var cs = sensitiveBox.Checked;
 
 			var tags = scopeBox.SelectedIndex switch
 			{
-				1 => provider.SearchTags(where, out parsed, notebookID: one.CurrentNotebookId),
-				2 => provider.SearchTags(where, out parsed, sectionID: one.CurrentSectionId),
-				_ => provider.SearchTags(where, out parsed)
+				1 => provider.SearchTags(where, cs, out parsed, notebookID: one.CurrentNotebookId),
+				2 => provider.SearchTags(where, cs, out parsed, sectionID: one.CurrentSectionId),
+				_ => provider.SearchTags(where, cs, out parsed)
 			};
+
+			if (!ShowOfflineNotebooks)
+			{
+				// must be ToList?!
+				var loaded = tags.Where(t => loadedBookIDs.Contains(t.NotebookID)).ToList();
+				tags.Clear();
+				tags.AddRange(loaded);
+			}
 
 			logger.Verbose($"found {tags.Count} tags using [{parsed}]");
 
@@ -181,7 +214,7 @@ namespace River.OneMoreAddIn.Commands
 
 			if (tags.Any())
 			{
-				var items = CollateTags(tags);
+				var items = CollateTags(tags, loadedBookIDs);
 				tags.Clear();
 
 				var controls = new HashtagContextControl[items.Count];
@@ -289,7 +322,7 @@ namespace River.OneMoreAddIn.Commands
 		}
 
 
-		private HashtagContexts CollateTags(Hashtags tags)
+		private HashtagContexts CollateTags(Hashtags tags, IEnumerable<string> loadedNotebookIDs)
 		{
 			// transform Hashtags collection to HashtagContexts collection...
 
@@ -301,7 +334,11 @@ namespace River.OneMoreAddIn.Commands
 			{
 				if (context == null || context.MoreID != tag.MoreID)
 				{
-					context = new HashtagContext(tag);
+					context = new HashtagContext(tag)
+					{
+						Available = loadedNotebookIDs.Contains(tag.NotebookID)
+					};
+
 					items.Add(context);
 				}
 				else
@@ -398,10 +435,45 @@ namespace River.OneMoreAddIn.Commands
 		}
 
 
+		private void PrepareContextMenu(object sender, System.EventArgs e)
+		{
+			if (ShowOfflineNotebooks)
+			{
+				offlineNotebooksButton.Image = Resx.e_CheckMark;
+				offlineNotebooksButton.Text = Resx.HashtagDialog_showOfflineMenuItem;
+			}
+			else
+			{
+				offlineNotebooksButton.Image = null;
+				offlineNotebooksButton.Text = Resx.HashtagDialog_hideOfflineMenuItem;
+			}
+		}
+
+
+		private void ToggleOfflineNotebooks(object sender, EventArgs e)
+		{
+			ShowOfflineNotebooks = !ShowOfflineNotebooks;
+		}
+
+
 		private void DoCancel(object sender, EventArgs e)
 		{
 			DialogResult = DialogResult.Cancel;
 			Close();
+		}
+
+
+		private void SaveSettings(object sender, FormClosingEventArgs e)
+		{
+			var provider = new SettingsProvider();
+			var settings = provider.GetCollection(SettingsKey);
+			settings.Add("showOffline", ShowOfflineNotebooks);
+
+			if (settings.IsModified)
+			{
+				provider.SetCollection(settings);
+				provider.Save();
+			}
 		}
 	}
 }

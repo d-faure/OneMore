@@ -477,6 +477,10 @@ Umkehren</value>
     <value>Falsche Anzahl von Funktionsparametern</value>
     <comment>error</comment>
   </data>
+  <data name="CleanRemindersCommand_count" xml:space="preserve">
+    <value>{0} verwaiste Erinnerungen wurden bereinigt</value>
+    <comment>message box</comment>
+  </data>
   <data name="ClearLog_Message" xml:space="preserve">
     <value>Protokolldatei jetzt löschen?</value>
     <comment>message box message</comment>
@@ -1003,6 +1007,9 @@ Schriftart der letzten Spalte</value>
   <data name="Error_NoAttachments" xml:space="preserve">
     <value>Keine Anhänge auf der Seite gefunden</value>
   </data>
+  <data name="Error_SelectContent" xml:space="preserve">
+    <value>Wählen Sie einige Inhalte aus, bevor Sie fortfahren</value>
+  </data>
   <data name="Error_SelectImage" xml:space="preserve">
     <value>Wähle ein Bild aus, bevor dieser Befehl aufgerufen wird</value>
     <comment>error message box</comment>
@@ -1165,15 +1172,16 @@ OneNote-Datei (*.one)</value>
     <comment>label</comment>
   </data>
   <data name="FormulaDialog_helpBox.Text" xml:space="preserve">
-    <value>Die eingegebene Formel sollte für die erste ausgewählte Zelle gelten. Diese Formel wird automatisch für weitere ausgewählte Zellen erhöht.
+    <value>Die eingegebene Formel sollte für die erste ausgewählte Zelle gelten. Diese Formel wird für weitere ausgewählte Zellen automatisch erhöht.
 
-Funktionen: abs, acos, asin, atan, atan2, average, ceiling, cos, cosh, countif, exp, floor, log, log10, max, median, min, mode, pow, range, round, sign, sin, sinh, sqrt, stdev, sum, tan, tanh, trunc, Varianz
+Funktionen: abs, acos, asin, atan, atan2, Durchschnitt, Decke, cos, cosh, countif, exp, floor, log, log10, max, median, min, mode, pow, range, rund, sign, sin, sinh, sqrt, stdev, sum, tan, tanh, trunc, Varianz
 
 Operatoren: + - / * ^
+Symbole: PI, E
 Zellreferenz: A1, A2, ... ZZZ999
 Zellbereich: A1:A22
-Symbole: PI, E</value>
-  </data>
+Relativer Bereich in einer Spalte: A1:A-1</value>
+  <comment></comment></data>
   <data name="FormulaDialog_selectedLabel.Text" xml:space="preserve">
     <value>Ausgewählte Zellen:</value>
     <comment>label</comment>
@@ -1261,6 +1269,10 @@ Die Suche nach Hashtags ist erst möglich, wenn dies abgeschlossen ist.</value>
     <value>Alle überprüfen</value>
     <comment>link label</comment>
   </data>
+  <data name="HashtagDialog_hideOfflineMenuItem" xml:space="preserve">
+    <value>Offline-Notizbücher ausblenden</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_introLabel.Text" xml:space="preserve">
     <value>Geben Sie einen beliebigen Teil eines oder mehrerer Hashtags ein. Platzhalter sind impliziert, es sei denn, ein Tag endet mit einem Punkt. Klammern und logische Operatoren sind zulässig.</value>
     <comment>label</comment>
@@ -1286,14 +1298,62 @@ Die Suche nach Hashtags ist erst möglich, wenn dies abgeschlossen ist.</value>
     <comment>menu item</comment>
   </data>
   <data name="HashtagDialog_scopeBox.Text" xml:space="preserve">
-    <value>Alle
+    <value>Alle Notizbücher
 Dieses Notizbuch
 Diese Abteilung</value>
     <comment>combobox</comment>
   </data>
+  <data name="HashtagDialog_sensitiveTip" xml:space="preserve">
+    <value>Groß- und Kleinschreibung beachtende Suche</value>
+    <comment>tooltip</comment>
+  </data>
+  <data name="HashtagDialog_showOfflineMenuItem" xml:space="preserve">
+    <value>Offline-Notizbücher anzeigen</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_uncheckAllLink.Text" xml:space="preserve">
     <value>Alle deaktivieren</value>
     <comment>link label</comment>
+  </data>
+  <data name="HashtaggerDialog.Text" xml:space="preserve">
+    <value>Hashtags</value>
+    <comment>dialog title</comment>
+  </data>
+  <data name="HashtaggerDialog_bankBox.Text" xml:space="preserve">
+    <value>Zur Tag-Datenbank oben auf der Seite hinzufügen</value>
+    <comment>checkbox</comment>
+  </data>
+  <data name="HashtaggerDialog_cloudGroup.Text" xml:space="preserve">
+    <value>Alle Hashtags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_commonGroup.Text" xml:space="preserve">
+    <value>Häufige Wörter auf dieser Seite</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_hideCommonMenuItem" xml:space="preserve">
+    <value>Verstecke gebräuchliche Wörter</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_hideRecentMenuItem" xml:space="preserve">
+    <value>Zuletzt verwendetes Symbol ausblenden</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_recentGroup.Text" xml:space="preserve">
+    <value>Zuletzt verwendete Tags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_showCommonMenuItem" xml:space="preserve">
+    <value>Zeigen Sie gebräuchliche Wörter an</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_showRecentMenuItem" xml:space="preserve">
+    <value>Kürzlich genutzt anzeigen</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_tagsLabel.Text" xml:space="preserve">
+    <value>Stichworte</value>
+    <comment>label</comment>
   </data>
   <data name="HashtagSheet_disabledBox.Text" xml:space="preserve">
     <value>Deaktivieren Sie den Hashtag-Dienst. Dadurch wird auch die Hashtag-Suche deaktiviert.</value>
@@ -1313,6 +1373,10 @@ Diese Abteilung</value>
   </data>
   <data name="HashtagSheet_prescheduled" xml:space="preserve">
     <value>Für {0} ist ein Scan geplant. Verwenden Sie die folgenden Optionen, um dies zu ändern, oder klicken Sie auf „Abbrechen“, um den aktuellen Zeitplan beizubehalten.</value>
+  </data>
+  <data name="HashtagSheet_resetTooltip" xml:space="preserve">
+    <value>Erweitert: Setzen Sie das Upgrade-Flag zurück</value>
+    <comment>tooltip</comment>
   </data>
   <data name="HashtagSheet_scanNotebooks" xml:space="preserve">
     <value>Planen Sie einen inkrementellen Scan Ihrer neu hinzugefügten Notizbücher</value>
@@ -1583,11 +1647,11 @@ Gelber Hintergrund</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCNotebook" xml:space="preserve">
-    <value>Inhaltsverzeichnis - Notizbuch {0}</value>
+    <value>Inhaltsverzeichnis📓 {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCSections" xml:space="preserve">
-    <value>Inhaltsverzeichnis - Abschnitt {0}</value>
+    <value>Inhaltsverzeichnis § {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_Top" xml:space="preserve">
@@ -1645,6 +1709,24 @@ Benutzerdefinierte Überschrift 3</value>
   <data name="InsertTocDialog_topBox.Text" xml:space="preserve">
     <value>Füge jeder Überschrift einen Link hinzu, um zum Seitenanfang zu springen</value>
     <comment>checkbox</comment>
+  </data>
+  <data name="InsertTocForNotebook_RefreshQuestion" xml:space="preserve">
+    <value>Für dieses Notizbuch gibt es eine Seite mit einem Inhaltsverzeichnis. Sie können diese Seite aktualisieren oder eine neue Seite erstellen.
+
+Möchten Sie die bestehende Seite aktualisieren?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForPage_ClearToc" xml:space="preserve">
+    <value>Auf dieser Seite gibt es keine Überschriften. Es gibt jedoch ein Inhaltsverzeichnis.
+
+Möchten Sie das Inhaltsverzeichnis von dieser Seite entfernen?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForSection_RefreshQuestion" xml:space="preserve">
+    <value>Für diesen Abschnitt gibt es eine Inhaltsverzeichnisseite. Sie können diese Seite aktualisieren oder eine neue Seite erstellen.
+
+Möchten Sie die bestehende Seite aktualisieren?</value>
+    <comment>message box</comment>
   </data>
   <data name="JoinParagraphCommand_Select" xml:space="preserve">
     <value>Wähle zwei oder mehr Linien zum Verbinden aus</value>
@@ -1823,6 +1905,10 @@ Benutzerdefinierte Überschrift 3</value>
   <data name="NetwordConnectionUnavailable" xml:space="preserve">
     <value>Netzwerkverbindung ist nicht verfügbar</value>
     <comment>error</comment>
+  </data>
+  <data name="NextUnreadPageCommand_nomore" xml:space="preserve">
+    <value>In dieser Richtung wurden keine ungelesenen Seiten gefunden</value>
+    <comment>message</comment>
   </data>
   <data name="NumberingPage_Message" xml:space="preserve">
     <value>Nummerierungsseite {0}</value>
@@ -2055,6 +2141,12 @@ In diesem Abschnitt</value>
     <value>Plugin</value>
     <comment>Open File Dialog title</comment>
   </data>
+  <data name="Plugin_trialCompleted" xml:space="preserve">
+    <value>Probelauf abgeschlossen
+
+Cache: {0}</value>
+    <comment>message</comment>
+  </data>
   <data name="Plugin_Unsuccessful" xml:space="preserve">
     <value>Plugin wurde nicht erfolgreich abgeschlossen. </value>
     <comment>error message</comment>
@@ -2109,16 +2201,27 @@ In diesem Abschnitt</value>
   </data>
   <data name="PluginDialog_targetBox.Text" xml:space="preserve">
     <value>Aktuelle Seite
-Aktuelles Notizbuch</value>
+Aktueller Abschnitt und seine Seiten
+Aktuelles Notizbuch und seine Abschnitte
+Aktuelles Notizbuch und seine Seiten
+Alle Notizbücher und ihre Seiten</value>
     <comment>combobox</comment>
   </data>
   <data name="PluginDialog_timeoutLabel.Text" xml:space="preserve">
     <value>Tmeout</value>
     <comment>label</comment>
   </data>
+  <data name="PluginDialog_trialBox.Text" xml:space="preserve">
+    <value>Testlauf – Cache-Datei behalten und OneNote nicht aktualisieren</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="PluginDialog_updateRadio.Text" xml:space="preserve">
     <value>Aktuelle Seite aktualisieren</value>
     <comment>radio button</comment>
+  </data>
+  <data name="PluginDialog_userArgsLabel.Text" xml:space="preserve">
+    <value>Benutzerargumente</value>
+    <comment>label</comment>
   </data>
   <data name="PluginsSheet_ConfirmDelete" xml:space="preserve">
     <value>Plugin "{0}" löschen</value>
@@ -2655,6 +2758,14 @@ Wähle Nein, um eine leere Zeile zwischen den Absätzen zu halten</value>
     <value>Formelbefehle</value>
     <comment>checkbox</comment>
   </data>
+  <data name="RibbonBarSheet_hashtagsIconBox.Text" xml:space="preserve">
+    <value>Nur Symbole für Hashtag-Befehle anzeigen</value>
+    <comment>settings dialog, ribbon bar options</comment>
+  </data>
+  <data name="RibbonBarSheet_hashtagsRibbonBox.Text" xml:space="preserve">
+    <value>Hashtag-Befehle</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="RibbonBarSheet_introBox.Text" xml:space="preserve">
     <value>Wähle aus, welche Befehle in die Multifunktionsleiste aufgenommen werden sollen und ob Symbole oder Symbole und Etiketten angezeigt werden sollen.</value>
     <comment>settings dialog, ribbon bar options</comment>
@@ -2727,6 +2838,14 @@ Nach der letzten Gruppe</value>
   <data name="ribCleanMenu_Label" xml:space="preserve">
     <value>Säubern</value>
     <comment>Ribbon OneMore menu item</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Label" xml:space="preserve">
+    <value>Saubere Erinnerungen</value>
+    <comment>ribbon reminders</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Screentip" xml:space="preserve">
+    <value>Bereinigen Sie defekte Erinnerungen auf dieser Seite</value>
+    <comment>ribbon reminders</comment>
   </data>
   <data name="ribClearBackgroundButton_Label" xml:space="preserve">
     <value>Klare Hintergrundfarbe</value>
@@ -2851,6 +2970,14 @@ Nach der letzten Gruppe</value>
   <data name="ribCopyLinkToParagraphButton_Screentip" xml:space="preserve">
     <value>Kopiert einen Hyperlink zum aktuellen Absatz</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Label" xml:space="preserve">
+    <value>Ausgewählten Inhalt kopieren</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Screentip" xml:space="preserve">
+    <value>Ausgewählten Inhalt auf eine neue Seite kopieren</value>
+    <comment>ribbon page</comment>
   </data>
   <data name="ribCrawlWebPageButton_Label" xml:space="preserve">
     <value>Hyperlinks importieren.</value>
@@ -3071,6 +3198,14 @@ Nach der letzten Gruppe</value>
   <data name="ribGetImagesButton_Screentip" xml:space="preserve">
     <value>Lade referenzierte Bilder herunter und fügen Sie sie ein</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribHashtaggerButton_Label" xml:space="preserve">
+    <value>Fügen Sie Hashtags ein</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribHashtaggerButton_Screentip" xml:space="preserve">
+    <value>Wählen Sie aus einer intelligenten Liste von Wörtern und Tags aus, um Hashtags einzufügen</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribHighlightButton_Label" xml:space="preserve">
     <value>Rotierender Textmarker</value>
@@ -3380,6 +3515,14 @@ Nach der letzten Gruppe</value>
     <value>Ausgewählte Seiten an das Ende der Liste verschieben</value>
     <comment>ribbon page</comment>
   </data>
+  <data name="ribMovePageContentButton_Label" xml:space="preserve">
+    <value>Ausgewählten Inhalt verschieben</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribMovePageContentButton_Screentip" xml:space="preserve">
+    <value>Ausgewählten Inhalt auf eine neue Seite verschieben</value>
+    <comment>ribbon page</comment>
+  </data>
   <data name="ribMovePageTopButton_Label" xml:space="preserve">
     <value>Nach oben verschieben</value>
     <comment>ribbon page</comment>
@@ -3411,6 +3554,14 @@ Nach der letzten Gruppe</value>
   <data name="ribNewStyleButton_Screentip" xml:space="preserve">
     <value>Erstellt einen neuen Stil aus der aktuellen Auswahl</value>
     <comment>ribbon styles</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Label" xml:space="preserve">
+    <value>Nächste ungelesene Seite</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Gehen Sie zur nächsten ungelesenen Seite</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribNoSpellCheckButton_Screentip" xml:space="preserve">
     <value>Rechtschreibprüfung für ganze Seite deaktivieren (F4)</value>
@@ -3534,6 +3685,14 @@ Nach der letzten Gruppe</value>
   <data name="ribPreviewMarkdownButton_Screentip" xml:space="preserve">
     <value>Vorschau der Seite oder des ausgewählten Texts als Markdown</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Label" xml:space="preserve">
+    <value>Vorherige ungelesene Seite</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Zur vorherigen ungelesenen Seite wechseln</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribPronunciateButton_Label" xml:space="preserve">
     <value>Aussprache einfügen</value>
@@ -3790,6 +3949,14 @@ Nach der letzten Gruppe</value>
   <data name="ribSelectImagesButton_Screentip" xml:space="preserve">
     <value>Wählt alle Bilder auf der Seite aus</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribSelectInkButton_Label" xml:space="preserve">
+    <value>Wählen Sie „Alle Tinte“.</value>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Screentip" xml:space="preserve">
+    <value>Wählen Sie die gesamte Tinte auf der Seite aus</value>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectStyleButton_Label" xml:space="preserve">
     <value>Wählen Sie „Ähnlicher Text“.</value>
@@ -4825,6 +4992,9 @@ Das Dialogfeld „Hashtags suchen“ wird nun geöffnet.</value>
   <data name="word_Caption" xml:space="preserve">
     <value>Untertitel</value>
   </data>
+  <data name="word_Clear" xml:space="preserve">
+    <value>Klar</value>
+  </data>
   <data name="word_Close" xml:space="preserve">
     <value>Nah dran</value>
   </data>
@@ -4866,6 +5036,9 @@ Das Dialogfeld „Hashtags suchen“ wird nun geöffnet.</value>
   </data>
   <data name="word_Element" xml:space="preserve">
     <value>Element</value>
+  </data>
+  <data name="word_Empty" xml:space="preserve">
+    <value>Leer</value>
   </data>
   <data name="word_Extract" xml:space="preserve">
     <value>Extrakt</value>

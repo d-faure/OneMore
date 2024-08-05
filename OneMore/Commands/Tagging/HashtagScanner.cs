@@ -139,13 +139,15 @@ namespace River.OneMoreAddIn.Commands
 			var notebooks = root.Elements(ns + "Notebook");
 			if (notebooks.Any())
 			{
-				var knownNotebooks = provider.ReadKnownNotebookIDs();
+				var knownNotebooks = provider.ReadKnownNotebooks();
 
 				foreach (var notebook in notebooks)
 				{
 					// gets sections for this notebook
 					var notebookID = notebook.Attribute("ID").Value;
 					var name = notebook.Attribute("name").Value;
+
+					var known = knownNotebooks.Find(n => n.NotebookID == notebookID);
 
 					// Filter on two levels...
 					//
@@ -163,21 +165,28 @@ namespace River.OneMoreAddIn.Commands
 
 					if (knownNotebooks.Count == 0 ||
 						(notebookFilters is null
-							? knownNotebooks.Contains(notebookID)
+							? known is not null
 							: notebookFilters.Contains(notebookID)))
 					{
 						//logger.Verbose($"scanning notebook {notebookID} \"{name}\"");
 
+						var dp = 0;
+
 						var sections = await one.GetNotebook(notebookID);
 						if (sections is not null)
 						{
-							var (dp, tp) = await Scan(one, sections, notebookID, $"/{name}");
+							int tp;
+							(dp, tp) = await Scan(
+								one, sections, notebookID, $"/{name}",
+								known?.LastModified == string.Empty);
 
 							dirtyPages += dp;
 							totalPages += tp;
 						}
 
-						provider.WriteNotebook(notebookID, name);
+						// record the notebook regardless of whether we find tags; must be done
+						// on initial discovery or user would have to explicitly pull it in
+						provider.WriteNotebook(notebookID, name, dp > 0);
 					}
 					else
 					{
@@ -193,7 +202,7 @@ namespace River.OneMoreAddIn.Commands
 
 
 		private async Task<(int, int)> Scan(
-			OneNote one, XElement parent, string notebookID, string path)
+			OneNote one, XElement parent, string notebookID, string path, bool forceThru)
 		{
 			//logger.Verbose($"scanning parent {path}");
 
@@ -232,9 +241,11 @@ namespace River.OneMoreAddIn.Commands
 								var pid = page.Attribute("ID").Value;
 								pids.Add(pid);
 
-								if (page.Attribute("lastModifiedTime").Value.CompareTo(lastTime) > 0)
+								if (forceThru || 
+									page.Attribute("lastModifiedTime").Value.CompareTo(lastTime) > 0)
 								{
-									if (await ScanPage(one, pid, notebookID, sectionID, sectionPath))
+									if (await ScanPage(one,
+										pid, notebookID, sectionID, sectionPath, forceThru))
 									{
 										dirtyPages++;
 									}
@@ -264,7 +275,7 @@ namespace River.OneMoreAddIn.Commands
 				foreach (var group in groups)
 				{
 					var (dp, tp) = await Scan(
-						one, group, notebookID, $"{path}/{group.Attribute("name").Value}");
+						one, group, notebookID, $"{path}/{group.Attribute("name").Value}", forceThru);
 
 					dirtyPages += dp;
 					totalPages += tp;
@@ -276,7 +287,8 @@ namespace River.OneMoreAddIn.Commands
 
 
 		private async Task<bool> ScanPage(
-			OneNote one, string pageID, string notebookID, string sectionID, string path)
+			OneNote one, string pageID, string notebookID, string sectionID,
+			string path, bool forceThru)
 		{
 			Page page;
 
@@ -312,7 +324,10 @@ namespace River.OneMoreAddIn.Commands
 
 			var candidates = scanner.Scan();
 
+			// saved tags will be in document-order but not have DocumentOrder set,
+			// we can rely on tag + objectID to continue resolving
 			var saved = provider.ReadPageTags(pageID);
+
 			var discovered = new Hashtags();
 			var updated = new Hashtags();
 
@@ -325,7 +340,9 @@ namespace River.OneMoreAddIn.Commands
 				}
 				else
 				{
-					if (candidate.LastModified.CompareTo(lastTime) > 0)
+					if (forceThru ||
+						candidate.LastModified.CompareTo(lastTime) > 0 ||
+						candidate.DocumentOrder != found.DocumentOrder)
 					{
 						updated.Add(candidate);
 					}
@@ -336,26 +353,11 @@ namespace River.OneMoreAddIn.Commands
 
 			var dirtyPage = false;
 
-			if (saved.Any())
+			if (saved.Any() || updated.Any() || discovered.Any())
 			{
-				// remaining saved entries were not matched with candidates
-				// on page so should be deleted
-				provider.DeleteTags(saved);
-				dirtyPage = true;
-			}
-
-			if (updated.Any())
-			{
-				// tag context updated since last scan
-				provider.UpdateSnippet(updated);
-				dirtyPage = true;
-			}
-
-			if (discovered.Any())
-			{
-				// discovered entries are new on the page and not found in saved
-
-				provider.WriteTags(discovered);
+				// much simpler to purge old and rewrite new, even if that means recreating a
+				// few copied records. should scale without issue into the many tens-of-tags
+				provider.WriteTags(pageID, candidates);
 				dirtyPage = true;
 			}
 

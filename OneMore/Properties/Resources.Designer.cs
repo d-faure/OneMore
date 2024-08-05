@@ -901,6 +901,15 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cleaned up {0} orphaned reminders.
+        /// </summary>
+        internal static string CleanRemindersCommand_count {
+            get {
+                return ResourceManager.GetString("CleanRemindersCommand_count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear the log file now?.
         /// </summary>
         internal static string ClearLog_Message {
@@ -2762,6 +2771,15 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select some content before proceeding.
+        /// </summary>
+        internal static string Error_SelectContent {
+            get {
+                return ResourceManager.GetString("Error_SelectContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select an image before invoking this command.
         /// </summary>
         internal static string Error_SelectImage {
@@ -3156,9 +3174,10 @@ namespace River.OneMoreAddIn.Properties {
         ///Functions: abs, acos, asin, atan, atan2, average, ceiling, cos, cosh, countif, exp, floor, log, log10, max, median, min, mode, pow, range, round, sign, sin, sinh, sqrt, stdev, sum, tan, tanh, trunc, variance
         ///
         ///Operators: + - / * ^
+        ///Symbols: PI, E
         ///Cell reference: A1, A2, ... ZZZ999
         ///Cell range: A1:A22
-        ///Symbols: PI, E.
+        ///Relative range in a column: A1:A-1.
         /// </summary>
         internal static string FormulaDialog_helpBox_Text {
             get {
@@ -3372,6 +3391,15 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide Offline Notebooks.
+        /// </summary>
+        internal static string HashtagDialog_hideOfflineMenuItem {
+            get {
+                return ResourceManager.GetString("HashtagDialog_hideOfflineMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type any part of one or more hashtags. Wildcards are implied unless a tag is ended with a period. Parenthesis and logical operators are allowed..
         /// </summary>
         internal static string HashtagDialog_introLabel_Text {
@@ -3426,13 +3454,31 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All
+        ///   Looks up a localized string similar to All notebooks
         ///This notebook
         ///This section.
         /// </summary>
         internal static string HashtagDialog_scopeBox_Text {
             get {
                 return ResourceManager.GetString("HashtagDialog_scopeBox.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Case-sensitive search.
+        /// </summary>
+        internal static string HashtagDialog_sensitiveTip {
+            get {
+                return ResourceManager.GetString("HashtagDialog_sensitiveTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Offline Notebooks.
+        /// </summary>
+        internal static string HashtagDialog_showOfflineMenuItem {
+            get {
+                return ResourceManager.GetString("HashtagDialog_showOfflineMenuItem", resourceCulture);
             }
         }
         
@@ -3455,9 +3501,99 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to tag bank at top of page.
+        /// </summary>
+        internal static string HashtaggerDialog_bankBox_Text {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_bankBox.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All hashtags.
+        /// </summary>
+        internal static string HashtaggerDialog_cloudGroup_Text {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_cloudGroup.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Common words on this page.
+        /// </summary>
+        internal static string HashtaggerDialog_commonGroup_Text {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_commonGroup.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide common words.
+        /// </summary>
+        internal static string HashtaggerDialog_hideCommonMenuItem {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_hideCommonMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide recently used.
+        /// </summary>
+        internal static string HashtaggerDialog_hideRecentMenuItem {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_hideRecentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recently used tags.
+        /// </summary>
+        internal static string HashtaggerDialog_recentGroup_Text {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_recentGroup.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show common words.
+        /// </summary>
+        internal static string HashtaggerDialog_showCommonMenuItem {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_showCommonMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show recently used.
+        /// </summary>
+        internal static string HashtaggerDialog_showRecentMenuItem {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_showRecentMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags.
+        /// </summary>
+        internal static string HashtaggerDialog_tagsLabel_Text {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog_tagsLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hashtags.
+        /// </summary>
+        internal static string HashtaggerDialog_Text {
+            get {
+                return ResourceManager.GetString("HashtaggerDialog.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CREATE TABLE IF NOT EXISTS hashtag_scanner (scannerID INTEGER PRIMARY KEY UNIQUE NOT NULL, version NUMERIC (12) UNIQUE NOT NULL, scanTime TEXT NOT NULL);
-        ///CREATE TABLE IF NOT EXISTS hashtag (tag TEXT NOT NULL, moreID TEXT NOT NULL, objectID TEXT NOT NULL, snippet TEXT, lastModified TEXT NOT NULL, PRIMARY KEY (tag, objectID), CONSTRAINT FK_moreID FOREIGN KEY (moreID) REFERENCES hashtag_page (moreID) ON DELETE CASCADE);
-        ///CREATE TABLE IF NOT EXISTS hashtag_page (moreID PRIMARY KEY, pageID TEXT NOT NULL, titleI [rest of string was truncated]&quot;;.
+        ///CREATE TABLE IF NOT EXISTS hashtag (tag TEXT NOT NULL, moreID TEXT NOT NULL, objectID TEXT NOT NULL, snippet TEXT, documentOrder INTEGER DEFAULT (0), lastModified TEXT NOT NULL, PRIMARY KEY (tag, objectID), CONSTRAINT FK_moreID FOREIGN KEY (moreID) REFERENCES hashtag_page (moreID) ON DELETE CASCADE);
+        ///CREATE TABLE IF NOT EXISTS hashtag_page (moreID PRIMAR [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HashtagsDB {
             get {
@@ -3507,6 +3643,15 @@ namespace River.OneMoreAddIn.Properties {
         internal static string HashtagSheet_prescheduled {
             get {
                 return ResourceManager.GetString("HashtagSheet_prescheduled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced: Reset the upgrade flag.
+        /// </summary>
+        internal static string HashtagSheet_resetTooltip {
+            get {
+                return ResourceManager.GetString("HashtagSheet_resetTooltip", resourceCulture);
             }
         }
         
@@ -4146,7 +4291,7 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Table of Contents - Notebook {0}.
+        ///   Looks up a localized string similar to Table of Contents📓 {0}.
         /// </summary>
         internal static string InsertTocCommand_TOCNotebook {
             get {
@@ -4155,7 +4300,7 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Table of Contents - Section {0}.
+        ///   Looks up a localized string similar to Table of Contents § {0}.
         /// </summary>
         internal static string InsertTocCommand_TOCSections {
             get {
@@ -4276,6 +4421,39 @@ namespace River.OneMoreAddIn.Properties {
         internal static string InsertTocDialog_topBox_Text {
             get {
                 return ResourceManager.GetString("InsertTocDialog_topBox.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a table of contents page for this notebook. You can refresh that page or create a new page.
+        ///
+        ///Do you want to refresh the existing page?.
+        /// </summary>
+        internal static string InsertTocForNotebook_RefreshQuestion {
+            get {
+                return ResourceManager.GetString("InsertTocForNotebook_RefreshQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no headings on this page. However, there is a table of contents.
+        ///
+        ///Would you like to remove the table of contents from this page?.
+        /// </summary>
+        internal static string InsertTocForPage_ClearToc {
+            get {
+                return ResourceManager.GetString("InsertTocForPage_ClearToc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a table of contents page for this section. You can refresh that page or create a new page.
+        ///
+        ///Do you want to refresh the existing page?.
+        /// </summary>
+        internal static string InsertTocForSection_RefreshQuestion {
+            get {
+                return ResourceManager.GetString("InsertTocForSection_RefreshQuestion", resourceCulture);
             }
         }
         
@@ -5032,6 +5210,15 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No unread pages found in that direction.
+        /// </summary>
+        internal static string NextUnreadPageCommand_nomore {
+            get {
+                return ResourceManager.GetString("NextUnreadPageCommand_nomore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap NoSpellCheck {
@@ -5649,6 +5836,17 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trial run completed
+        ///
+        ///Cache: {0}.
+        /// </summary>
+        internal static string Plugin_trialCompleted {
+            get {
+                return ResourceManager.GetString("Plugin_trialCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plugin did not complete successfully. See log file..
         /// </summary>
         internal static string Plugin_Unsuccessful {
@@ -5758,7 +5956,10 @@ namespace River.OneMoreAddIn.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Current page
-        ///Current notebook.
+        ///Current section and its pages
+        ///Current notebook and its sections
+        ///Current notebook and its pages
+        ///All notebooks and their pages.
         /// </summary>
         internal static string PluginDialog_targetBox_Text {
             get {
@@ -5785,11 +5986,29 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trial run - keep cache file and do not update OneNote.
+        /// </summary>
+        internal static string PluginDialog_trialBox_Text {
+            get {
+                return ResourceManager.GetString("PluginDialog_trialBox.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update current page.
         /// </summary>
         internal static string PluginDialog_updateRadio_Text {
             get {
                 return ResourceManager.GetString("PluginDialog_updateRadio.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Arguments.
+        /// </summary>
+        internal static string PluginDialog_userArgsLabel_Text {
+            get {
+                return ResourceManager.GetString("PluginDialog_userArgsLabel.Text", resourceCulture);
             }
         }
         
@@ -6982,7 +7201,25 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose which commands to include in the ribbon bar and whether to display icons or icons and lables. Restart OneNote to see changes..
+        ///   Looks up a localized string similar to Show only icons for hashtag commands.
+        /// </summary>
+        internal static string RibbonBarSheet_hashtagsIconBox_Text {
+            get {
+                return ResourceManager.GetString("RibbonBarSheet_hashtagsIconBox.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hashtag Commands.
+        /// </summary>
+        internal static string RibbonBarSheet_hashtagsRibbonBox_Text {
+            get {
+                return ResourceManager.GetString("RibbonBarSheet_hashtagsRibbonBox.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose optional preset grouping to add to the ribbon bar.
         /// </summary>
         internal static string RibbonBarSheet_introBox_Text {
             get {
@@ -7137,6 +7374,24 @@ namespace River.OneMoreAddIn.Properties {
         internal static string ribCleanMenu_Label {
             get {
                 return ResourceManager.GetString("ribCleanMenu_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean Reminders.
+        /// </summary>
+        internal static string ribCleanRemindersButton_Label {
+            get {
+                return ResourceManager.GetString("ribCleanRemindersButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean broken reminders on this page.
+        /// </summary>
+        internal static string ribCleanRemindersButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribCleanRemindersButton_Screentip", resourceCulture);
             }
         }
         
@@ -7416,6 +7671,24 @@ namespace River.OneMoreAddIn.Properties {
         internal static string ribCopyLinkToParagraphButton_Screentip {
             get {
                 return ResourceManager.GetString("ribCopyLinkToParagraphButton_Screentip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Selected Content.
+        /// </summary>
+        internal static string ribCopyPageContentButton_Label {
+            get {
+                return ResourceManager.GetString("ribCopyPageContentButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy selected content to a new page.
+        /// </summary>
+        internal static string ribCopyPageContentButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribCopyPageContentButton_Screentip", resourceCulture);
             }
         }
         
@@ -7911,6 +8184,24 @@ namespace River.OneMoreAddIn.Properties {
         internal static string ribGetImagesButton_Screentip {
             get {
                 return ResourceManager.GetString("ribGetImagesButton_Screentip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insert Hashtags.
+        /// </summary>
+        internal static string ribHashtaggerButton_Label {
+            get {
+                return ResourceManager.GetString("ribHashtaggerButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick from a smart list of words and tags to insert hashtags.
+        /// </summary>
+        internal static string ribHashtaggerButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribHashtaggerButton_Screentip", resourceCulture);
             }
         }
         
@@ -8628,6 +8919,24 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move Selected Content.
+        /// </summary>
+        internal static string ribMovePageContentButton_Label {
+            get {
+                return ResourceManager.GetString("ribMovePageContentButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move selected content to a new page.
+        /// </summary>
+        internal static string ribMovePageContentButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribMovePageContentButton_Screentip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Move to Top.
         /// </summary>
         internal static string ribMovePageTopButton_Label {
@@ -8706,6 +9015,24 @@ namespace River.OneMoreAddIn.Properties {
         internal static string ribNewStyleButton_Screentip {
             get {
                 return ResourceManager.GetString("ribNewStyleButton_Screentip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next Unread Page.
+        /// </summary>
+        internal static string ribNextUnreadPageButton_Label {
+            get {
+                return ResourceManager.GetString("ribNextUnreadPageButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move to the next unread page.
+        /// </summary>
+        internal static string ribNextUnreadPageButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribNextUnreadPageButton_Screentip", resourceCulture);
             }
         }
         
@@ -8985,6 +9312,24 @@ namespace River.OneMoreAddIn.Properties {
         internal static string ribPreviewMarkdownButton_Screentip {
             get {
                 return ResourceManager.GetString("ribPreviewMarkdownButton_Screentip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Previous Unread Page.
+        /// </summary>
+        internal static string ribPreviousUnreadPageButton_Label {
+            get {
+                return ResourceManager.GetString("ribPreviousUnreadPageButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move to the previous unread page.
+        /// </summary>
+        internal static string ribPreviousUnreadPageButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribPreviousUnreadPageButton_Screentip", resourceCulture);
             }
         }
         
@@ -9571,6 +9916,24 @@ namespace River.OneMoreAddIn.Properties {
         internal static string ribSelectImagesButton_Screentip {
             get {
                 return ResourceManager.GetString("ribSelectImagesButton_Screentip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select All Ink.
+        /// </summary>
+        internal static string ribSelectInkButton_Label {
+            get {
+                return ResourceManager.GetString("ribSelectInkButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all ink on the page.
+        /// </summary>
+        internal static string ribSelectInkButton_Screentip {
+            get {
+                return ResourceManager.GetString("ribSelectInkButton_Screentip", resourceCulture);
             }
         }
         
@@ -12009,6 +12372,15 @@ namespace River.OneMoreAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string word_Clear {
+            get {
+                return ResourceManager.GetString("word_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string word_Close {
@@ -12131,6 +12503,15 @@ namespace River.OneMoreAddIn.Properties {
         internal static string word_Element {
             get {
                 return ResourceManager.GetString("word_Element", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty.
+        /// </summary>
+        internal static string word_Empty {
+            get {
+                return ResourceManager.GetString("word_Empty", resourceCulture);
             }
         }
         

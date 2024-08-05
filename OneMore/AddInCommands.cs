@@ -147,6 +147,11 @@ namespace River.OneMoreAddIn
 			=> await factory.Run<GotoFavoriteCommand>(null);
 
 
+		[Command("ribCleanRemindersButton_Label", Keys.None, "ribRemindersMenu")]
+		public async Task CleanRemindersCmd(IRibbonControl control)
+			=> await factory.Run<CleanRemindersCommand>();
+
+
 		[Command("ribClearBackgroundButton_Label", Keys.None, "ribCleanMenu")]
 		public async Task ClearBackgroundCmd(IRibbonControl control)
 			=> await factory.Run<ClearBackgroundCommand>();
@@ -241,6 +246,11 @@ namespace River.OneMoreAddIn
 		[Command("ribCrawlWebPageButton_Label", Keys.None)]
 		public async Task CrawlWebPageCmd(IRibbonControl control)
 			=> await factory.Run<CrawlWebPageCommand>();
+
+
+		[Command("ribCopyPageContentButton_Label", Keys.None, "ribPageMenu")]
+		public async Task CopyPageContentCmd(IRibbonControl control)
+			=> await factory.Run<CopyPageContentCommand>();
 
 
 		[Command("ribCreatePagesButton_Label", Keys.None, "ribPageMenu")]
@@ -370,6 +380,12 @@ namespace River.OneMoreAddIn
 
 		public async Task GotoFavoriteCmd(IRibbonControl control)
 			=> await factory.Run<GotoFavoriteCommand>(control.Tag); //tag=pageid
+
+
+		[Command("ribHashtaggerButton_Label", Keys.Alt | Keys.T, "ribSearchMenu")]
+		public async Task HashtaggerCmd(IRibbonControl control)
+			=> await factory.Run<HashtaggerCommand>(1);
+
 
 
 		[Command("ribHighlightButton_Label", Keys.Control | Keys.Shift | Keys.H, "ribEditMenu")]
@@ -571,6 +587,11 @@ namespace River.OneMoreAddIn
 			=> await factory.Run<MovePageCommand>(false);
 
 
+		[Command("ribMovePageContentButton_Label", Keys.None, "ribPageMenu")]
+		public async Task MovePageContentCmd(IRibbonControl control)
+			=> await factory.Run<MovePageContentCommand>();
+
+
 		[Command("ribMovePageTopButton_Label", Keys.None, "ribPageMenu")]
 		public async Task MovePageTopCmd(IRibbonControl control)
 			=> await factory.Run<MovePageCommand>(true);
@@ -584,6 +605,11 @@ namespace River.OneMoreAddIn
 		[Command("ribNavigatorButton_Label", Keys.Shift | Keys.Alt | Keys.N)]
 		public async Task NavigatorCmd(IRibbonControl control)
 			=> await factory.Run<NavigatorCommand>();
+
+
+		[Command("ribNextUnreadPageButton_Label", Keys.None, "ribSearchMenu")]
+		public async Task NextUnreadPageCmd(IRibbonControl control)
+			=> await factory.Run<NextUnreadPageCommand>();
 
 
 		[Command("ribNewStyleButton_Label", Keys.None)]
@@ -650,6 +676,11 @@ namespace River.OneMoreAddIn
 		[Command("ribPreviewMarkdownButton_Label", Keys.Control | Keys.Alt | Keys.Shift | Keys.M, "ribEditMenu")]
 		public async Task PreviewMarkdownCmd(IRibbonControl control)
 			=> await factory.Run<PreviewMarkdownCommand>();
+
+
+		[Command("ribPreviousUnreadPageButton_Label", Keys.None, "ribSearchMenu")]
+		public async Task PreviousUnreadPageCmd(IRibbonControl control)
+			=> await factory.Run<PreviousUnreadPageCommand>();
 
 
 		[Command("ribPronunciateButton_Label", Keys.None, "ribEditMenu")]
@@ -813,6 +844,11 @@ namespace River.OneMoreAddIn
 			=> await factory.Run<SelectImagesCommand>();
 
 
+		[Command("ribSelectInkButton_Label", Keys.None, "ribEditMenu")]
+		public async Task SelectInkCmd(IRibbonControl control)
+			=> await factory.Run<SelectInkCommand>();
+
+
 		[Command("ribSelectStyleButton_Label", Keys.None, "ribEditMenu")]
 		public async Task SelectStyleCmd(IRibbonControl control)
 			=> await factory.Run<SelectStyleCommand>();
@@ -903,7 +939,7 @@ namespace River.OneMoreAddIn
 			=> await factory.Run<TaggedCommand>();
 
 
-		[Command("ribTaggingButton_Label", Keys.Alt | Keys.T, "ribSearchMenu")]
+		[Command("ribTaggingButton_Label", Keys.None, "ribSearchMenu")]
 		public async Task TaggingCmd(IRibbonControl control)
 			=> await factory.Run<TaggingCommand>();
 

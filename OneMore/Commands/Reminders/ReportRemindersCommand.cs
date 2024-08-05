@@ -281,9 +281,17 @@ namespace River.OneMoreAddIn.Commands
 
 			var current = await one.GetPageInfo();
 
-			await one.NavigateTo(pageId, string.Empty);
-			// absurd but NavigateTo needs time to settle down
-			await Task.Delay(100);
+			try
+			{
+				await one.NavigateTo(pageId, string.Empty);
+				// absurd but NavigateTo needs time to settle down
+				await Task.Delay(100);
+			}
+			catch (Exception exc)
+			{
+				logger.WriteLine("error finding previous report, creating new report", exc);
+				return null;
+			}
 
 			DialogResult answer;
 			using (var dialog = new ReportRemindersReuseDialog())
@@ -311,10 +319,7 @@ namespace River.OneMoreAddIn.Commands
 
 		private void ClearContent()
 		{
-			var chalkOutlines = page.Root.Elements(ns + "Outline")
-				.Where(e => !e.Elements(ns + "Meta")
-					.Any(m => m.Attribute("name").Value == MetaNames.TaggingBank));
-
+			var chalkOutlines = page.BodyOutlines;
 			if (chalkOutlines.Any())
 			{
 				// assume the first outline is the report, reuse it as our container
@@ -344,7 +349,7 @@ namespace River.OneMoreAddIn.Commands
 
 			table.SetColumnWidth(0, 220);
 			table.SetColumnWidth(1, 70);
-			table.SetColumnWidth(2, 145);
+			table.SetColumnWidth(2, 140);
 			table.SetColumnWidth(3, 130);
 			table.SetColumnWidth(4, 60);
 			table.SetColumnWidth(5, 60);
@@ -491,6 +496,8 @@ namespace River.OneMoreAddIn.Commands
 		{
 			var index = page.AddTagDef(item.Reminder.Symbol, string.Empty);
 			var uri = one.GetHyperlink(item.Meta.Parent.Attribute("ID").Value, item.Reminder.ObjectId);
+
+			// TODO: what do we do about broken links? ....
 
 			// uri might be null if making a cross-machine query since objectIDs are ephemeral
 			var text = uri != null

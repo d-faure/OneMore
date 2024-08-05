@@ -102,11 +102,11 @@ namespace River.OneMoreAddIn.Commands
 				foreach (var meta in metas)
 				{
 					var tableRoot = meta.ElementsAfterSelf(ns + "Table").FirstOrDefault();
-					if (tableRoot != null)
+					if (tableRoot is not null)
 					{
 						sourceId = meta.Attribute("content").Value;
 						var source = await GetSource(sourceId, linkId);
-						if (source == null || !source.Snippets.Any())
+						if (source is null || !source.Snippets.Any())
 						{
 							// error reading source
 							ShowError(Resx.EmbedSubpageCommand_NoEmbedded);
@@ -130,9 +130,9 @@ namespace River.OneMoreAddIn.Commands
 		private async Task<SourceInfo> GetSource(string sourceId, string linkId)
 		{
 			var source = await one.GetPage(sourceId, OneNote.PageDetail.BinaryData);
-			if (source == null)
+			if (source is null)
 			{
-				if (linkId == null)
+				if (linkId is null)
 				{
 					// linkId should only be null from EmbedContent because it's using the local
 					// reference to the page, but GetPage still couldn't find it so give up!
@@ -154,18 +154,37 @@ namespace River.OneMoreAddIn.Commands
 					source = await one.GetPage(sourceId, OneNote.PageDetail.BinaryData);
 				}
 
-				if (source == null)
+				if (source is null)
 				{
 					ShowError(Resx.EmbedSubpageCommand_NoSource);
 					return null;
 				}
 			}
 
-			var outRoot = source.Root.Elements(source.Namespace + "Outline")
-				.FirstOrDefault(e => !e.Elements(ns + "Meta")
-					.Any(m => m.Attribute("name").Value == MetaNames.TaggingBank));
+			var outRoot = source.BodyOutlines.FirstOrDefault();
+			if (outRoot is null)
+			{
+				// couldn't find an Outline but page may contain other valid content items
+				var child = source.Root.Elements().FirstOrDefault(e =>
+					e.Name.LocalName == "Image" ||
+					e.Name.LocalName == "InkDrawing" ||
+					e.Name.LocalName == "InsertedFile" ||
+					e.Name.LocalName == "MediaFile");
 
-			if (outRoot == null)
+				if (child is not null)
+				{
+					child.Attribute("omHash")?.Remove();
+
+					// fabricate a new Outline
+					outRoot = new XElement(ns + "Outline",
+						new XElement(ns + "OEChildren",
+							new XElement(ns + "OE", child)
+							)
+						);
+				}
+			}
+
+			if (outRoot is null)
 			{
 				ShowError(Resx.EmbedSubpageCommand_NoContent);
 				return null;
@@ -250,7 +269,7 @@ namespace River.OneMoreAddIn.Commands
 			await using (one = new OneNote(out page, out ns))
 			{
 				var source = await GetSource(sourceId, null);
-				if (source == null || !source.Snippets.Any())
+				if (source is null || !source.Snippets.Any())
 				{
 					return;
 				}
@@ -263,7 +282,7 @@ namespace River.OneMoreAddIn.Commands
 					.Ancestors(ns + "OEChildren")
 					.FirstOrDefault();
 
-				if (container == null)
+				if (container is null)
 				{
 					ShowError(Resx.Error_BodyContext);
 					return;
@@ -281,7 +300,7 @@ namespace River.OneMoreAddIn.Commands
 					hostCell = hostCell.Parent;
 				}
 
-				if (hostCell == null)
+				if (hostCell is null)
 				{
 					// set width to width of source page outline
 					var width = source.Outline.GetWidth();

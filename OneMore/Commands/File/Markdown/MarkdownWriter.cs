@@ -72,7 +72,7 @@ namespace River.OneMoreAddIn.Commands
 			using var stream = new MemoryStream();
 			using (writer = new StreamWriter(stream))
 			{
-				writer.WriteLine($"# {page.Title}");
+				await writer.WriteLineAsync($"# {page.Title}");
 
 				if (content.Name.LocalName == "Page")
 				{
@@ -87,14 +87,14 @@ namespace River.OneMoreAddIn.Commands
 						.ForEach(e => Write(e));
 				}
 
-				writer.WriteLine();
-				writer.Flush();
+				await writer.WriteLineAsync();
+				await writer.FlushAsync();
 
 				stream.Position = 0;
 				using var reader = new StreamReader(stream);
 
 				var clippy = new ClipboardProvider();
-				var success = await clippy.SetText(reader.ReadToEnd(), true);
+				var success = await clippy.SetText(await reader.ReadToEndAsync(), true);
 				if (!success)
 				{
 					MoreMessageBox.ShowError(null, Resx.Clipboard_locked);
@@ -256,8 +256,11 @@ namespace River.OneMoreAddIn.Commands
 			var quick = quickStyles.First(q => q.Index == context.QuickStyleIndex);
 			switch (quick.Name)
 			{
-				case "PageTitle": writer.Write("# "); break;
-				case "h1": writer.Write("# "); break;
+				case "PageTitle":
+				case "h1":
+					writer.Write("# ");
+					break;
+
 				case "h2": writer.Write("## "); break;
 				case "h3": writer.Write("### "); break;
 				case "h4": writer.Write("#### "); break;
@@ -284,8 +287,8 @@ namespace River.OneMoreAddIn.Commands
 				case 3:     // to do
 				case 8:     // client request
 				case 12:    // schedule/callback
-				case 28:    // todo prio 1
-				case 71:    // todo prio 2
+				case 28:    // to do prio 1
+				case 71:    // to do prio 2
 				case 94:    // discuss person a/b
 				case 95:    // discuss manager
 					var check = element.Attribute("completed").Value == "true" ? "x" : " ";
@@ -375,8 +378,7 @@ namespace River.OneMoreAddIn.Commands
 			using var stream = new MemoryStream(binhex, 0, binhex.Length);
 			using var image = Image.FromStream(stream);
 
-			var prefix = page.Title.Replace(" ", string.Empty);
-			var name = $"{prefix}_{++imageCounter}.png";
+			var name = $"{attachmentFolder}_{++imageCounter}.png";
 			var filename = Path.Combine(attachmentPath, name);
 #if !LOG
 			if (!Directory.Exists(attachmentPath))

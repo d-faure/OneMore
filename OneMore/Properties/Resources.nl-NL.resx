@@ -478,6 +478,10 @@ Omkeren</value>
     <value>Verkeerd aantal functieparameters</value>
     <comment>error</comment>
   </data>
+  <data name="CleanRemindersCommand_count" xml:space="preserve">
+    <value>{0} zwevende herinneringen opgeschoond</value>
+    <comment>message box</comment>
+  </data>
   <data name="ClearLog_Message" xml:space="preserve">
     <value>Wilt u het logbestand nu wissen?</value>
     <comment>message box message</comment>
@@ -1004,6 +1008,9 @@ Lettertype laatste kolom</value>
   <data name="Error_NoAttachments" xml:space="preserve">
     <value>Geen bijlagen gevonden op pagina</value>
   </data>
+  <data name="Error_SelectContent" xml:space="preserve">
+    <value>Selecteer wat inhoud voordat u doorgaat</value>
+  </data>
   <data name="Error_SelectImage" xml:space="preserve">
     <value>Selecteer een afbeelding voordat u deze opdracht oproept</value>
     <comment>error message box</comment>
@@ -1170,12 +1177,13 @@ Percentage</value>
   <data name="FormulaDialog_helpBox.Text" xml:space="preserve">
     <value>De ingevoerde formule moet van toepassing zijn op de eerste geselecteerde cel. Deze formule wordt automatisch verhoogd voor extra geselecteerde cellen.
 
-Functies: abs, acos, asin, atan, atan2, gemiddeld, plafond, cos, cosh, countif, exp, floor, log, log10, max, mediaan, min, mode, pow, range, round, sign, sin, sinh, sqrt, stdev, sum, tan, tanh, trunc, variantie
+Functies: abs, acos, asin, atan, atan2, gemiddeld, plafond, cos, cosh, countif, exp, floor, log, log10, max, mediaan, min, mode, pow, bereik, rond, teken, sin, sinh, sqrt, stdev, som, tan, tanh, trunc, variantie
 
-Operators: + - / * ^
-Celverwijzing: A1, A2, ... ZZZ999
+Operatoren: + - / * ^
+Symbolen: PI, E
+Celreferentie: A1, A2, ... ZZZ999
 Celbereik: A1:A22
-Symbolen: PI, E</value>
+Relatief bereik in een kolom: A1:A-1</value>
   <comment></comment></data>
   <data name="FormulaDialog_selectedLabel.Text" xml:space="preserve">
     <value>Geselecteerde cellen:</value>
@@ -1264,6 +1272,10 @@ Zoeken naar hashtags is pas beschikbaar als dit is voltooid.</value>
     <value>Controleer alles</value>
     <comment>link label</comment>
   </data>
+  <data name="HashtagDialog_hideOfflineMenuItem" xml:space="preserve">
+    <value>Offline notitieblokken verbergen</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_introLabel.Text" xml:space="preserve">
     <value>Typ een deel van een of meer hashtags. Wildcards worden geïmpliceerd, tenzij een tag wordt afgesloten met een punt. Haakjes en logische operatoren zijn toegestaan.</value>
     <comment>label</comment>
@@ -1289,14 +1301,62 @@ Zoeken naar hashtags is pas beschikbaar als dit is voltooid.</value>
     <comment>menu item</comment>
   </data>
   <data name="HashtagDialog_scopeBox.Text" xml:space="preserve">
-    <value>Alle
+    <value>Alle notitieboekjes
 Dit notitieboekje
 Deze sectie</value>
     <comment>combobox</comment>
   </data>
+  <data name="HashtagDialog_sensitiveTip" xml:space="preserve">
+    <value>Hoofdlettergevoelig zoeken</value>
+    <comment>tooltip</comment>
+  </data>
+  <data name="HashtagDialog_showOfflineMenuItem" xml:space="preserve">
+    <value>Offline notitieboekjes tonen</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_uncheckAllLink.Text" xml:space="preserve">
     <value>Schakel alles uit</value>
     <comment>link label</comment>
+  </data>
+  <data name="HashtaggerDialog.Text" xml:space="preserve">
+    <value>Hashtags</value>
+    <comment>dialog title</comment>
+  </data>
+  <data name="HashtaggerDialog_bankBox.Text" xml:space="preserve">
+    <value>Voeg toe aan tagbank bovenaan de pagina</value>
+    <comment>checkbox</comment>
+  </data>
+  <data name="HashtaggerDialog_cloudGroup.Text" xml:space="preserve">
+    <value>Alle hashtags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_commonGroup.Text" xml:space="preserve">
+    <value>Veel voorkomende woorden op deze pagina</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_hideCommonMenuItem" xml:space="preserve">
+    <value>Veelvoorkomende woorden verbergen</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_hideRecentMenuItem" xml:space="preserve">
+    <value>Recent gebruikt verbergen</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_recentGroup.Text" xml:space="preserve">
+    <value>Recent gebruikte tags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_showCommonMenuItem" xml:space="preserve">
+    <value>Toon gewone woorden</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_showRecentMenuItem" xml:space="preserve">
+    <value>Toon recent gebruikt</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_tagsLabel.Text" xml:space="preserve">
+    <value>Labels</value>
+    <comment>label</comment>
   </data>
   <data name="HashtagSheet_disabledBox.Text" xml:space="preserve">
     <value>Schakel de hashtag-service uit. Hiermee wordt ook het zoeken naar hashtags uitgeschakeld.</value>
@@ -1316,6 +1376,10 @@ Deze sectie</value>
   </data>
   <data name="HashtagSheet_prescheduled" xml:space="preserve">
     <value>Er is een scan gepland voor {0}. Gebruik de onderstaande opties om dit te wijzigen of druk op Annuleren om het huidige schema te behouden.</value>
+  </data>
+  <data name="HashtagSheet_resetTooltip" xml:space="preserve">
+    <value>Geavanceerd: Reset de upgradevlag</value>
+    <comment>tooltip</comment>
   </data>
   <data name="HashtagSheet_scanNotebooks" xml:space="preserve">
     <value>Plan een incrementele scan van uw nieuw toegevoegde notitieboekjes</value>
@@ -1586,11 +1650,11 @@ Gele achtergrond</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCNotebook" xml:space="preserve">
-    <value>Inhoudsopgave - Kladblok {0}</value>
+    <value>Inhoudsopgave📓 {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCSections" xml:space="preserve">
-    <value>Inhoudsopgave - sectie {0}</value>
+    <value>Inhoudsopgave § {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_Top" xml:space="preserve">
@@ -1648,6 +1712,24 @@ Aangepaste kop 3</value>
   <data name="InsertTocDialog_topBox.Text" xml:space="preserve">
     <value>Voeg een link toe aan elke kop om naar de bovenkant van de pagina te gaan</value>
     <comment>checkbox</comment>
+  </data>
+  <data name="InsertTocForNotebook_RefreshQuestion" xml:space="preserve">
+    <value>Er is een inhoudsopgave voor dit notitieboekje. U kunt die pagina vernieuwen of een nieuwe pagina maken.
+
+Wilt u de bestaande pagina vernieuwen?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForPage_ClearToc" xml:space="preserve">
+    <value>Er zijn geen kopjes op deze pagina. Er is echter wel een inhoudsopgave.
+
+Wilt u de inhoudsopgave van deze pagina verwijderen?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForSection_RefreshQuestion" xml:space="preserve">
+    <value>Er is een inhoudsopgave voor dit onderdeel. U kunt die pagina vernieuwen of een nieuwe pagina maken.
+
+Wilt u de bestaande pagina vernieuwen?</value>
+    <comment>message box</comment>
   </data>
   <data name="JoinParagraphCommand_Select" xml:space="preserve">
     <value>Selecteer twee of meer lijnen om mee te doen</value>
@@ -1826,6 +1908,10 @@ Aangepaste kop 3</value>
   <data name="NetwordConnectionUnavailable" xml:space="preserve">
     <value>Netwerkverbinding is niet beschikbaar</value>
     <comment>error</comment>
+  </data>
+  <data name="NextUnreadPageCommand_nomore" xml:space="preserve">
+    <value>Geen ongelezen pagina's gevonden in die richting</value>
+    <comment>message</comment>
   </data>
   <data name="NumberingPage_Message" xml:space="preserve">
     <value>Nummeringspagina {0}</value>
@@ -2058,6 +2144,12 @@ In deze sectie</value>
     <value>Inpluggen</value>
     <comment>Open File Dialog title</comment>
   </data>
+  <data name="Plugin_trialCompleted" xml:space="preserve">
+    <value>Proefdraaien voltooid
+
+Cache: {0}</value>
+    <comment>message</comment>
+  </data>
   <data name="Plugin_Unsuccessful" xml:space="preserve">
     <value>De plug-in is niet succesvol voltooid. </value>
     <comment>error message</comment>
@@ -2112,16 +2204,27 @@ In deze sectie</value>
   </data>
   <data name="PluginDialog_targetBox.Text" xml:space="preserve">
     <value>Huidige pagina
-Huidig ​​notitieboek</value>
+Huidige sectie en zijn pagina's
+Huidig ​​notitieboekje en zijn secties
+Huidig ​​notitieboekje en zijn pagina's
+Alle notitieboekjes en hun pagina's</value>
     <comment>combobox</comment>
   </data>
   <data name="PluginDialog_timeoutLabel.Text" xml:space="preserve">
     <value>Tmeout</value>
     <comment>label</comment>
   </data>
+  <data name="PluginDialog_trialBox.Text" xml:space="preserve">
+    <value>Proefdraaien: bewaar het cachebestand en werk OneNote niet bij</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="PluginDialog_updateRadio.Text" xml:space="preserve">
     <value>Update huidige pagina</value>
     <comment>radio button</comment>
+  </data>
+  <data name="PluginDialog_userArgsLabel.Text" xml:space="preserve">
+    <value>Gebruikersargumenten</value>
+    <comment>label</comment>
   </data>
   <data name="PluginsSheet_ConfirmDelete" xml:space="preserve">
     <value>Verwijder plug-in "{0}"</value>
@@ -2658,8 +2761,16 @@ Selecteer NO om één lege regel tussen paragrafen te behouden</value>
     <value>Formule-opdrachten</value>
     <comment>checkbox</comment>
   </data>
+  <data name="RibbonBarSheet_hashtagsIconBox.Text" xml:space="preserve">
+    <value>Toon alleen pictogrammen voor hashtag-opdrachten</value>
+    <comment>settings dialog, ribbon bar options</comment>
+  </data>
+  <data name="RibbonBarSheet_hashtagsRibbonBox.Text" xml:space="preserve">
+    <value>Hashtag-opdrachten</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="RibbonBarSheet_introBox.Text" xml:space="preserve">
-    <value>Kies welke opdrachten u in de lintbalk wilt opnemen en of u pictogrammen of pictogrammen en labels wilt weergeven. </value>
+    <value>Kies optionele vooraf ingestelde groeperingen om toe te voegen aan de lintbalk</value>
     <comment>settings dialog, ribbon bar options</comment>
   </data>
   <data name="RibbonBarSheet_positionBox.Text" xml:space="preserve">
@@ -2730,6 +2841,14 @@ Na de laatste groep</value>
   <data name="ribCleanMenu_Label" xml:space="preserve">
     <value>Schoon</value>
     <comment>Ribbon OneMore menu item</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Label" xml:space="preserve">
+    <value>Schone herinneringen</value>
+    <comment>ribbon reminders</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Screentip" xml:space="preserve">
+    <value>Reinig kapotte herinneringen op deze pagina</value>
+    <comment>ribbon reminders</comment>
   </data>
   <data name="ribClearBackgroundButton_Label" xml:space="preserve">
     <value>Heldere achtergrondkleur</value>
@@ -2852,6 +2971,14 @@ Na de laatste groep</value>
   <data name="ribCopyLinkToParagraphButton_Screentip" xml:space="preserve">
     <value>Kopieer een hyperlink naar de huidige alinea</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Label" xml:space="preserve">
+    <value>Kopieer geselecteerde inhoud</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Screentip" xml:space="preserve">
+    <value>Kopieer geselecteerde inhoud naar een nieuwe pagina</value>
+    <comment>ribbon page</comment>
   </data>
   <data name="ribCrawlWebPageButton_Label" xml:space="preserve">
     <value>Hyperlinks importeren</value>
@@ -3072,6 +3199,14 @@ Na de laatste groep</value>
   <data name="ribGetImagesButton_Screentip" xml:space="preserve">
     <value>Afbeeldingen waarnaar wordt verwezen downloaden en invoegen</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribHashtaggerButton_Label" xml:space="preserve">
+    <value>Voeg hashtags in</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribHashtaggerButton_Screentip" xml:space="preserve">
+    <value>Kies uit een slimme lijst met woorden en tags om hashtags in te voegen</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribHighlightButton_Label" xml:space="preserve">
     <value>Roterende markeerstift</value>
@@ -3380,6 +3515,14 @@ Na de laatste groep</value>
     <value>Verplaats geselecteerde pagina's naar de onderkant van de lijst</value>
     <comment>ribbon page</comment>
   </data>
+  <data name="ribMovePageContentButton_Label" xml:space="preserve">
+    <value>Verplaats geselecteerde inhoud</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribMovePageContentButton_Screentip" xml:space="preserve">
+    <value>Verplaats geselecteerde inhoud naar een nieuwe pagina</value>
+    <comment>ribbon page</comment>
+  </data>
   <data name="ribMovePageTopButton_Label" xml:space="preserve">
     <value>Verplaats naar boven</value>
     <comment>ribbon page</comment>
@@ -3411,6 +3554,14 @@ Na de laatste groep</value>
   <data name="ribNewStyleButton_Screentip" xml:space="preserve">
     <value>Maak een nieuwe stijl van de huidige selectie</value>
     <comment>ribbon styles</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Label" xml:space="preserve">
+    <value>Volgende ongelezen pagina</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Ga naar de volgende ongelezen pagina</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribNoSpellCheckButton_Screentip" xml:space="preserve">
     <value>Spellingcontrole voor hele pagina uitschakelen (F4)</value>
@@ -3542,6 +3693,14 @@ Na de laatste groep</value>
   <data name="ribPreviewMarkdownButton_Screentip" xml:space="preserve">
     <value>Bekijk een voorbeeld van de pagina of geselecteerde tekst als markdown</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Label" xml:space="preserve">
+    <value>Vorige ongelezen pagina</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Naar de vorige ongelezen pagina gaan</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribPronunciateButton_Label" xml:space="preserve">
     <value>Uitspraak invoegen</value>
@@ -3797,6 +3956,14 @@ Na de laatste groep</value>
   <data name="ribSelectImagesButton_Screentip" xml:space="preserve">
     <value>Selecteer alle afbeeldingen op de pagina</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribSelectInkButton_Label" xml:space="preserve">
+    <value>Selecteer Alle inkt</value>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Screentip" xml:space="preserve">
+    <value>Selecteer alle inkt op de pagina</value>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectStyleButton_Label" xml:space="preserve">
     <value>Selecteer Vergelijkbare tekst</value>
@@ -4832,6 +4999,9 @@ Het dialoogvenster Hashtags zoeken wordt nu geopend.</value>
   <data name="word_Caption" xml:space="preserve">
     <value>Ondertiteling</value>
   </data>
+  <data name="word_Clear" xml:space="preserve">
+    <value>Duidelijk</value>
+  </data>
   <data name="word_Close" xml:space="preserve">
     <value>Dichtbij</value>
   </data>
@@ -4873,6 +5043,9 @@ Het dialoogvenster Hashtags zoeken wordt nu geopend.</value>
   </data>
   <data name="word_Element" xml:space="preserve">
     <value>Element</value>
+  </data>
+  <data name="word_Empty" xml:space="preserve">
+    <value>Leeg</value>
   </data>
   <data name="word_Extract" xml:space="preserve">
     <value>Extract</value>

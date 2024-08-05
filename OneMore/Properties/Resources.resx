@@ -486,6 +486,10 @@ Invert</value>
     <value>Wrong number of function parameters</value>
     <comment>error</comment>
   </data>
+  <data name="CleanRemindersCommand_count" xml:space="preserve">
+    <value>Cleaned up {0} orphaned reminders</value>
+    <comment>message box</comment>
+  </data>
   <data name="ClearLog_Message" xml:space="preserve">
     <value>Clear the log file now?</value>
     <comment>message box message</comment>
@@ -1016,6 +1020,9 @@ Last Column Font</value>
   <data name="Error_NoAttachments" xml:space="preserve">
     <value>No attachments found on page</value>
   </data>
+  <data name="Error_SelectContent" xml:space="preserve">
+    <value>Select some content before proceeding</value>
+  </data>
   <data name="Error_SelectImage" xml:space="preserve">
     <value>Select an image before invoking this command</value>
     <comment>error message box</comment>
@@ -1185,9 +1192,10 @@ Percentage</value>
 Functions: abs, acos, asin, atan, atan2, average, ceiling, cos, cosh, countif, exp, floor, log, log10, max, median, min, mode, pow, range, round, sign, sin, sinh, sqrt, stdev, sum, tan, tanh, trunc, variance
 
 Operators: + - / * ^
+Symbols: PI, E
 Cell reference: A1, A2, ... ZZZ999
 Cell range: A1:A22
-Symbols: PI, E</value>
+Relative range in a column: A1:A-1</value>
   </data>
   <data name="FormulaDialog_selectedLabel.Text" xml:space="preserve">
     <value>Selected cells:</value>
@@ -1276,6 +1284,10 @@ Searching for hashtags is unavailable until this is completed.</value>
     <value>Check all</value>
     <comment>link label</comment>
   </data>
+  <data name="HashtagDialog_hideOfflineMenuItem" xml:space="preserve">
+    <value>Hide Offline Notebooks</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_introLabel.Text" xml:space="preserve">
     <value>Type any part of one or more hashtags. Wildcards are implied unless a tag is ended with a period. Parenthesis and logical operators are allowed.</value>
     <comment>label</comment>
@@ -1301,14 +1313,62 @@ Searching for hashtags is unavailable until this is completed.</value>
     <comment>menu item</comment>
   </data>
   <data name="HashtagDialog_scopeBox.Text" xml:space="preserve">
-    <value>All
+    <value>All notebooks
 This notebook
 This section</value>
     <comment>combobox</comment>
   </data>
+  <data name="HashtagDialog_sensitiveTip" xml:space="preserve">
+    <value>Case-sensitive search</value>
+    <comment>tooltip</comment>
+  </data>
+  <data name="HashtagDialog_showOfflineMenuItem" xml:space="preserve">
+    <value>Show Offline Notebooks</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_uncheckAllLink.Text" xml:space="preserve">
     <value>Uncheck all</value>
     <comment>link label</comment>
+  </data>
+  <data name="HashtaggerDialog.Text" xml:space="preserve">
+    <value>Hashtags</value>
+    <comment>dialog title</comment>
+  </data>
+  <data name="HashtaggerDialog_bankBox.Text" xml:space="preserve">
+    <value>Add to tag bank at top of page</value>
+    <comment>checkbox</comment>
+  </data>
+  <data name="HashtaggerDialog_cloudGroup.Text" xml:space="preserve">
+    <value>All hashtags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_commonGroup.Text" xml:space="preserve">
+    <value>Common words on this page</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_hideCommonMenuItem" xml:space="preserve">
+    <value>Hide common words</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_hideRecentMenuItem" xml:space="preserve">
+    <value>Hide recently used</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_recentGroup.Text" xml:space="preserve">
+    <value>Recently used tags</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_showCommonMenuItem" xml:space="preserve">
+    <value>Show common words</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_showRecentMenuItem" xml:space="preserve">
+    <value>Show recently used</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_tagsLabel.Text" xml:space="preserve">
+    <value>Tags</value>
+    <comment>label</comment>
   </data>
   <data name="HashtagSheet_disabledBox.Text" xml:space="preserve">
     <value>Disable the hashtag service. This will also disable hashtag searching.</value>
@@ -1328,6 +1388,10 @@ This section</value>
   </data>
   <data name="HashtagSheet_prescheduled" xml:space="preserve">
     <value>A scan is scheduled for {0}. Use the options below to change this or press Cancel to keep the current schedule.</value>
+  </data>
+  <data name="HashtagSheet_resetTooltip" xml:space="preserve">
+    <value>Advanced: Reset the upgrade flag</value>
+    <comment>tooltip</comment>
   </data>
   <data name="HashtagSheet_scanNotebooks" xml:space="preserve">
     <value>Schedule an incremental scan of your newly added notebooks</value>
@@ -1598,11 +1662,11 @@ Yellow Background</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCNotebook" xml:space="preserve">
-    <value>Table of Contents - Notebook {0}</value>
+    <value>Table of Contents📓 {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCSections" xml:space="preserve">
-    <value>Table of Contents - Section {0}</value>
+    <value>Table of Contents § {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_Top" xml:space="preserve">
@@ -1660,6 +1724,24 @@ Custom Heading 3</value>
   <data name="InsertTocDialog_topBox.Text" xml:space="preserve">
     <value>Add link to each heading to jump to top of page</value>
     <comment>checkbox</comment>
+  </data>
+  <data name="InsertTocForNotebook_RefreshQuestion" xml:space="preserve">
+    <value>There is a table of contents page for this notebook. You can refresh that page or create a new page.
+
+Do you want to refresh the existing page?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForPage_ClearToc" xml:space="preserve">
+    <value>There are no headings on this page. However, there is a table of contents.
+
+Would you like to remove the table of contents from this page?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForSection_RefreshQuestion" xml:space="preserve">
+    <value>There is a table of contents page for this section. You can refresh that page or create a new page.
+
+Do you want to refresh the existing page?</value>
+    <comment>message box</comment>
   </data>
   <data name="JoinParagraphCommand_Select" xml:space="preserve">
     <value>Select two or more lines to join</value>
@@ -1838,6 +1920,10 @@ Custom Heading 3</value>
   <data name="NetwordConnectionUnavailable" xml:space="preserve">
     <value>Network connection is not available</value>
     <comment>error</comment>
+  </data>
+  <data name="NextUnreadPageCommand_nomore" xml:space="preserve">
+    <value>No unread pages found in that direction</value>
+    <comment>message</comment>
   </data>
   <data name="NumberingPage_Message" xml:space="preserve">
     <value>Numbering page {0}</value>
@@ -2086,6 +2172,12 @@ In this section</value>
     <value>Plugin</value>
     <comment>Open File Dialog title</comment>
   </data>
+  <data name="Plugin_trialCompleted" xml:space="preserve">
+    <value>Trial run completed
+
+Cache: {0}</value>
+    <comment>message</comment>
+  </data>
   <data name="Plugin_Unsuccessful" xml:space="preserve">
     <value>Plugin did not complete successfully. See log file.</value>
     <comment>error message</comment>
@@ -2140,16 +2232,27 @@ In this section</value>
   </data>
   <data name="PluginDialog_targetBox.Text" xml:space="preserve">
     <value>Current page
-Current notebook</value>
+Current section and its pages
+Current notebook and its sections
+Current notebook and its pages
+All notebooks and their pages</value>
     <comment>combobox</comment>
   </data>
   <data name="PluginDialog_timeoutLabel.Text" xml:space="preserve">
     <value>Tmeout</value>
     <comment>label</comment>
   </data>
+  <data name="PluginDialog_trialBox.Text" xml:space="preserve">
+    <value>Trial run - keep cache file and do not update OneNote</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="PluginDialog_updateRadio.Text" xml:space="preserve">
     <value>Update current page</value>
     <comment>radio button</comment>
+  </data>
+  <data name="PluginDialog_userArgsLabel.Text" xml:space="preserve">
+    <value>User Arguments</value>
+    <comment>label</comment>
   </data>
   <data name="PluginsSheet_ConfirmDelete" xml:space="preserve">
     <value>Delete plugin "{0}"</value>
@@ -2694,8 +2797,16 @@ Select No to keep one empty line between paragraphs</value>
     <value>Formula Commands</value>
     <comment>checkbox</comment>
   </data>
+  <data name="RibbonBarSheet_hashtagsIconBox.Text" xml:space="preserve">
+    <value>Show only icons for hashtag commands</value>
+    <comment>settings dialog, ribbon bar options</comment>
+  </data>
+  <data name="RibbonBarSheet_hashtagsRibbonBox.Text" xml:space="preserve">
+    <value>Hashtag Commands</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="RibbonBarSheet_introBox.Text" xml:space="preserve">
-    <value>Choose which commands to include in the ribbon bar and whether to display icons or icons and lables. Restart OneNote to see changes.</value>
+    <value>Choose optional preset grouping to add to the ribbon bar</value>
     <comment>settings dialog, ribbon bar options</comment>
   </data>
   <data name="RibbonBarSheet_positionBox.Text" xml:space="preserve">
@@ -2766,6 +2877,14 @@ After last group</value>
   <data name="ribCleanMenu_Label" xml:space="preserve">
     <value>Clean</value>
     <comment>ribbon menu</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Label" xml:space="preserve">
+    <value>Clean Reminders</value>
+    <comment>ribbon reminders</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Screentip" xml:space="preserve">
+    <value>Clean broken reminders on this page</value>
+    <comment>ribbon reminders</comment>
   </data>
   <data name="ribClearBackgroundButton_Label" xml:space="preserve">
     <value>Clear Background Color</value>
@@ -2890,6 +3009,14 @@ After last group</value>
   <data name="ribCopyLinkToParagraphButton_Screentip" xml:space="preserve">
     <value>Copy a hyperlink to the current paragraph</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Label" xml:space="preserve">
+    <value>Copy Selected Content</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Screentip" xml:space="preserve">
+    <value>Copy selected content to a new page</value>
+    <comment>ribbon page</comment>
   </data>
   <data name="ribCrawlWebPageButton_Label" xml:space="preserve">
     <value>Import Hyperlinks</value>
@@ -3110,6 +3237,14 @@ After last group</value>
   <data name="ribGetImagesButton_Screentip" xml:space="preserve">
     <value>Download and insert referenced images</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribHashtaggerButton_Label" xml:space="preserve">
+    <value>Insert Hashtags</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribHashtaggerButton_Screentip" xml:space="preserve">
+    <value>Pick from a smart list of words and tags to insert hashtags</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribHighlightButton_Label" xml:space="preserve">
     <value>Rotating Highlighter</value>
@@ -3419,6 +3554,14 @@ After last group</value>
     <value>Move selected pages to bottom of list</value>
     <comment>ribbon page</comment>
   </data>
+  <data name="ribMovePageContentButton_Label" xml:space="preserve">
+    <value>Move Selected Content</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribMovePageContentButton_Screentip" xml:space="preserve">
+    <value>Move selected content to a new page</value>
+    <comment>ribbon page</comment>
+  </data>
   <data name="ribMovePageTopButton_Label" xml:space="preserve">
     <value>Move to Top</value>
     <comment>ribbon page</comment>
@@ -3450,6 +3593,14 @@ After last group</value>
   <data name="ribNewStyleButton_Screentip" xml:space="preserve">
     <value>Create a new style from the current selection</value>
     <comment>ribbon styles</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Label" xml:space="preserve">
+    <value>Next Unread Page</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Move to the next unread page</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribNoSpellCheckButton_Screentip" xml:space="preserve">
     <value>Disable spell check for entire page (F4)</value>
@@ -3574,6 +3725,14 @@ After last group</value>
   <data name="ribPreviewMarkdownButton_Screentip" xml:space="preserve">
     <value>Preview page or selected text as markdown</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Label" xml:space="preserve">
+    <value>Previous Unread Page</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Screentip" xml:space="preserve">
+    <value>Move to the previous unread page</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribPronunciateButton_Label" xml:space="preserve">
     <value>Insert Pronunciation</value>
@@ -3825,11 +3984,19 @@ After last group</value>
   </data>
   <data name="ribSelectImagesButton_Label" xml:space="preserve">
     <value>Select All Images</value>
-    <comment>ribbon edit</comment>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectImagesButton_Screentip" xml:space="preserve">
     <value>Select all images on the page</value>
-    <comment>ribbon edit</comment>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Label" xml:space="preserve">
+    <value>Select All Ink</value>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Screentip" xml:space="preserve">
+    <value>Select all ink on the page</value>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectStyleButton_Label" xml:space="preserve">
     <value>Select Similar Text</value>
@@ -4874,6 +5041,9 @@ The Find Hashtags dialog will now open.</value>
   <data name="word_Caption" xml:space="preserve">
     <value>Caption</value>
   </data>
+  <data name="word_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
   <data name="word_Close" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -4915,6 +5085,9 @@ The Find Hashtags dialog will now open.</value>
   </data>
   <data name="word_Element" xml:space="preserve">
     <value>Element</value>
+  </data>
+  <data name="word_Empty" xml:space="preserve">
+    <value>Empty</value>
   </data>
   <data name="word_Extract" xml:space="preserve">
     <value>Extract</value>

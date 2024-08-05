@@ -55,23 +55,14 @@ namespace River.OneMoreAddIn.Commands
 		{
 			var provider = new SettingsProvider();
 			var settings = provider.GetCollection("tagging");
-			if (settings.Get("converted", false))
-			{
-				Converted = true;
-				return false;
-			}
 
-			if (settings.Get("ignore", false))
+			if (!await NeedsConversion(settings))
 			{
-				// previously opted to ignore upgrade
-				return false;
-			}
+				settings.Add("converted", true);
+				provider.SetCollection(settings);
+				provider.Save();
 
-			var count = await GetLegacyTagCount();
-			if (count == 0)
-			{
 				Converted = true;
-				// no legacy page tags to upgrade
 				return false;
 			}
 
@@ -116,8 +107,12 @@ namespace River.OneMoreAddIn.Commands
 
 		public async Task<bool> NeedsConversion()
 		{
-			var provider = new SettingsProvider();
-			var settings = provider.GetCollection("tagging");
+			return await NeedsConversion(new SettingsProvider().GetCollection("tagging"));
+		}
+
+
+		private async Task<bool> NeedsConversion(SettingsCollection settings)
+		{
 			if (settings.Get("converted", false))
 			{
 				return false;
@@ -261,6 +256,14 @@ namespace River.OneMoreAddIn.Commands
 			}
 
 			return !token.IsCancellationRequested;
+		}
+
+
+		public static void ResetUpgradeCheck()
+		{
+			var provider = new SettingsProvider();
+			provider.RemoveCollection("tagging");
+			provider.Save();
 		}
 	}
 }

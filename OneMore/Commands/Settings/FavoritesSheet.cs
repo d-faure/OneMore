@@ -23,6 +23,7 @@ namespace River.OneMoreAddIn.Settings
 		private readonly IRibbonUI ribbon;
 		private readonly bool shortcuts;
 		private BindingList<Favorite> favorites;
+		private Task validator;
 		private bool updated = false;
 
 
@@ -65,10 +66,27 @@ namespace River.OneMoreAddIn.Settings
 
 			await using var provider = new FavoritesProvider(null);
 			var list = provider.LoadFavorites();
-			await provider.ValidateFavorites(list);
+
+			// capture Task so it can be completed later in RowEnter
+			validator = provider.ValidateFavorites(list);
+
 			favorites = new BindingList<Favorite>(list);
 
 			gridView.DataSource = favorites;
+		}
+
+
+		private async void FinishValidationOnRowEnter(object sender, DataGridViewCellEventArgs e)
+		{
+			// executed once (by unsetting 'validator') to update the data source binding
+			// after validation is completed
+
+			if (validator is not null)
+			{
+				await Task.WhenAll(validator);
+				validator = null;
+				favorites.ResetBindings();
+			}
 		}
 
 
@@ -138,48 +156,24 @@ namespace River.OneMoreAddIn.Settings
 			first--;
 			if (first < 0 && gridView.Rows.Count > 0)
 			{
-				gridView.Rows[0].Cells[0].Selected = true;
+				gridView.Rows[0].Selected = true;
 			}
 			else if (first < gridView.Rows.Count && first >= 0)
 			{
-				gridView.Rows[first].Cells[0].Selected = true;
+				gridView.Rows[first].Selected = true;
 			}
 		}
 
 
 		private void MoveItemDown(object sender, EventArgs e)
 		{
-			if (gridView.SelectedCells.Count > 0)
-			{
-				int colIndex = gridView.SelectedCells[0].ColumnIndex;
-				int rowIndex = gridView.SelectedCells[0].RowIndex;
-				if (rowIndex < favorites.Count - 1)
-				{
-					var item = favorites[rowIndex];
-					favorites.RemoveAt(rowIndex);
-					favorites.Insert(rowIndex + 1, item);
-
-					gridView.Rows[rowIndex + 1].Cells[colIndex].Selected = true;
-				}
-			}
+			gridView.MoveSelectedItemDown(favorites);
 		}
 
 
 		private void MoveItemUp(object sender, EventArgs e)
 		{
-			if (gridView.SelectedCells.Count > 0)
-			{
-				int colIndex = gridView.SelectedCells[0].ColumnIndex;
-				int rowIndex = gridView.SelectedCells[0].RowIndex;
-				if (rowIndex > 0 && rowIndex < favorites.Count)
-				{
-					var item = favorites[rowIndex];
-					favorites.RemoveAt(rowIndex);
-					favorites.Insert(rowIndex - 1, item);
-
-					gridView.Rows[rowIndex - 1].Cells[colIndex].Selected = true;
-				}
-			}
+			gridView.MoveSelectedItemUp(favorites);
 		}
 
 

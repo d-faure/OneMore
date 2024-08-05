@@ -486,6 +486,12 @@
                 getScreentip="GetRibbonScreentip"
                 onAction="SelectImagesCmd"/>
               <button
+                id="ribSelectInkButton"
+                imageMso="GroupShapes"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="SelectInkCmd"/>
+              <button
                 id="ribStylizeImagesButton"
                 imageMso="GroupPictureStyles"
                 getLabel="GetRibbonLabel"
@@ -549,6 +555,18 @@
                 getLabel="GetRibbonLabel"
                 getScreentip="GetRibbonScreentip"
                 onAction="CaptionAttachmentsCmd"/>
+              <button
+                id="ribCopyPageContentButton"
+                imageMso="Copy"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="CopyPageContentCmd"/>
+              <button
+                id="ribMovePageContentButton"
+                imageMso="PasteDuplicate"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="MovePageContentCmd"/>
               <button
                 id="ribCreatePagesButton"
                 imageMso="CreateHandoutsInWord"
@@ -716,6 +734,12 @@
                 getScreentip="GetRibbonScreentip"
                 onAction="RemindCmd"/>
               <button
+                id="ribCleanRemindersButton"
+                imageMso="FileWorkflowTasks"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="CleanRemindersCmd"/>
+              <button
                 id="ribCompleteReminderButton"
                 imageMso="AcceptTask"
                 getLabel="GetRibbonLabel"
@@ -766,6 +790,12 @@
                 getScreentip="GetRibbonScreentip"
                 onAction="SearchHashtagsCmd"/>
               <button
+                id="ribHashtaggerButton"
+                image="Label"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="HashtaggerCmd"/>
+              <button
                 id="ribAddTagBankButton"
                 imageMso="DataFormAddRecord"
                 getLabel="GetRibbonLabel"
@@ -777,6 +807,18 @@
                 getLabel="GetRibbonLabel"
                 getScreentip="GetRibbonScreentip"
                 onAction="RemoveTagBankCmd"/>
+              <button
+                id="ribNextUnreadPageButton"
+                imageMso="PageNext"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="NextUnreadPageCmd"/>
+              <button
+                id="ribPreviousUnreadPageButton"
+                imageMso="PagePrevious"
+                getLabel="GetRibbonLabel"
+                getScreentip="GetRibbonScreentip"
+                onAction="PreviousUnreadPageCmd"/>
               <button
                 id="ribTaggingButton"
                 image="Label"
@@ -1095,6 +1137,18 @@
         getScreentip="GetRibbonScreentip"
         onAction="SortPagesCmd"
         insertBeforeMso="RenamePageOneNote"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuOutlineHandle">
+      <button
+        id="ctxArrangeContainersButton"
+        imageMso="WindowsArrangeAll"
+        getLabel="GetRibbonLabel"
+        getScreentip="GetRibbonScreentip"
+        onAction="ArrangeContainersCmd"
+        insertBeforeMso="Cut"/>
+      <menuSeparator
+        id="omOutlineContextMenuSeparator"
+        insertBeforeMso="Cut"/>
     </contextMenu>
     <contextMenu idMso="ContextMenuPicture">
       <button

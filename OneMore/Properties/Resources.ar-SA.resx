@@ -477,6 +477,10 @@
     <value>رقم خاطئ لمعلمات الوظيفة</value>
     <comment>error</comment>
   </data>
+  <data name="CleanRemindersCommand_count" xml:space="preserve">
+    <value>تم تنظيف {0} من التذكيرات المعزولة</value>
+    <comment>message box</comment>
+  </data>
   <data name="ClearLog_Message" xml:space="preserve">
     <value>مسح ملف السجل الآن؟</value>
     <comment>message box message</comment>
@@ -1003,6 +1007,9 @@
   <data name="Error_NoAttachments" xml:space="preserve">
     <value>لم يتم العثور على المرفقات في الصفحة</value>
   </data>
+  <data name="Error_SelectContent" xml:space="preserve">
+    <value>حدد بعض المحتوى قبل المتابعة</value>
+  </data>
   <data name="Error_SelectImage" xml:space="preserve">
     <value>حدد صورة قبل استدعاء هذا الأمر</value>
     <comment>error message box</comment>
@@ -1167,14 +1174,15 @@
     <comment>label</comment>
   </data>
   <data name="FormulaDialog_helpBox.Text" xml:space="preserve">
-    <value>يجب أن تنطبق الصيغة التي تم إدخالها على الخلية الأولى المحددة. ستتم زيادة هذه الصيغة تلقائيًا للخلايا الإضافية المحددة.
+    <value>يجب أن تنطبق الصيغة المدخلة على الخلية المحددة الأولى. سيتم زيادة هذه الصيغة تلقائيًا للخلايا المحددة الإضافية.
 
-الوظائف: abs ، acos ، asin ، atan ، atan2 ، المتوسط ​​، السقف ، cos ، cosh ، countif ، exp ، floor ، log10 ، max ، median ، min ، mode ، pow ، range ، round ، sign ، sin ، sinh ، sqrt، stdev، sum، tan، tanh، trunc، variance
+الوظائف: abs، acos، asin، atan، atan2، متوسط، سقف، cos، cosh، countif، exp، Floor، log، log10، max، median، min، mode، pow، range، round،sign، sin، sinh، sqrt، stdev، مجموع، تان، تانه، الجذع، التباين
 
-عوامل التشغيل: + - / * ^
+المشغلين: + - / * ^
+الرموز: PI، E
 مرجع الخلية: A1، A2، ... ZZZ999
-نطاق الخلايا: A1: A22
-الرموز: PI، E</value>
+نطاق الخلايا: A1:A22
+النطاق النسبي في عمود: A1:A-1</value>
   <comment></comment></data>
   <data name="FormulaDialog_selectedLabel.Text" xml:space="preserve">
     <value>الخلايا المحددة:</value>
@@ -1263,6 +1271,10 @@
     <value>تحقق من الكل</value>
     <comment>link label</comment>
   </data>
+  <data name="HashtagDialog_hideOfflineMenuItem" xml:space="preserve">
+    <value>إخفاء دفاتر الملاحظات غير المتصلة</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_introLabel.Text" xml:space="preserve">
     <value>اكتب أي جزء من هاشتاج واحد أو أكثر. يتم تضمين أحرف البدل ما لم تنتهي العلامة بنقطة. يُسمح بالأقواس والعوامل المنطقية.</value>
     <comment>label</comment>
@@ -1288,14 +1300,62 @@
     <comment>menu item</comment>
   </data>
   <data name="HashtagDialog_scopeBox.Text" xml:space="preserve">
-    <value>الجميع
+    <value>جميع الدفاتر
 هذا دفتر
 هذا القسم</value>
     <comment>combobox</comment>
   </data>
+  <data name="HashtagDialog_sensitiveTip" xml:space="preserve">
+    <value>بحث حساس لحالة الأحرف</value>
+    <comment>tooltip</comment>
+  </data>
+  <data name="HashtagDialog_showOfflineMenuItem" xml:space="preserve">
+    <value>إظهار دفاتر الملاحظات غير المتصلة</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_uncheckAllLink.Text" xml:space="preserve">
     <value>الغاءالكل</value>
     <comment>link label</comment>
+  </data>
+  <data name="HashtaggerDialog.Text" xml:space="preserve">
+    <value>علامات التصنيف</value>
+    <comment>dialog title</comment>
+  </data>
+  <data name="HashtaggerDialog_bankBox.Text" xml:space="preserve">
+    <value>أضف إلى بنك العلامات في أعلى الصفحة</value>
+    <comment>checkbox</comment>
+  </data>
+  <data name="HashtaggerDialog_cloudGroup.Text" xml:space="preserve">
+    <value>جميع الهاشتاجات</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_commonGroup.Text" xml:space="preserve">
+    <value>الكلمات الشائعة في هذه الصفحة</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_hideCommonMenuItem" xml:space="preserve">
+    <value>إخفاء الكلمات الشائعة</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_hideRecentMenuItem" xml:space="preserve">
+    <value>إخفاء المستخدمة مؤخرا</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_recentGroup.Text" xml:space="preserve">
+    <value>العلامات المستخدمة مؤخرا</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_showCommonMenuItem" xml:space="preserve">
+    <value>عرض الكلمات الشائعة</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_showRecentMenuItem" xml:space="preserve">
+    <value>عرض المستخدمة مؤخرا</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_tagsLabel.Text" xml:space="preserve">
+    <value>العلامات</value>
+    <comment>label</comment>
   </data>
   <data name="HashtagSheet_disabledBox.Text" xml:space="preserve">
     <value>تعطيل خدمة الهاشتاج. سيؤدي هذا أيضًا إلى تعطيل البحث عن الهاشتاج.</value>
@@ -1315,6 +1375,10 @@
   </data>
   <data name="HashtagSheet_prescheduled" xml:space="preserve">
     <value>تمت جدولة عملية الفحص لـ {0}. استخدم الخيارات أدناه لتغيير هذا أو اضغط على إلغاء للاحتفاظ بالجدول الحالي.</value>
+  </data>
+  <data name="HashtagSheet_resetTooltip" xml:space="preserve">
+    <value>متقدم: إعادة تعيين علامة الترقية</value>
+    <comment>tooltip</comment>
   </data>
   <data name="HashtagSheet_scanNotebooks" xml:space="preserve">
     <value>قم بجدولة فحص متزايد لدفاتر الملاحظات المضافة حديثًا</value>
@@ -1585,11 +1649,11 @@
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCNotebook" xml:space="preserve">
-    <value>جدول المحتويات - مفكرة {0}</value>
+    <value>جدول المحتويات📓 {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCSections" xml:space="preserve">
-    <value>جدول المحتويات - القسم {0}</value>
+    <value>جدول المحتويات § {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_Top" xml:space="preserve">
@@ -1647,6 +1711,24 @@
   <data name="InsertTocDialog_topBox.Text" xml:space="preserve">
     <value>أضف ارتباطًا إلى كل عنوان للانتقال إلى أعلى الصفحة</value>
     <comment>checkbox</comment>
+  </data>
+  <data name="InsertTocForNotebook_RefreshQuestion" xml:space="preserve">
+    <value>هناك صفحة جدول المحتويات لهذا دفتر الملاحظات. يمكنك تحديث تلك الصفحة أو إنشاء صفحة جديدة.
+
+هل تريد تحديث الصفحة الحالية؟</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForPage_ClearToc" xml:space="preserve">
+    <value>لا توجد عناوين في هذه الصفحة. ومع ذلك، هناك جدول المحتويات.
+
+هل ترغب في إزالة جدول المحتويات من هذه الصفحة؟</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForSection_RefreshQuestion" xml:space="preserve">
+    <value>هناك صفحة جدول المحتويات لهذا القسم. يمكنك تحديث تلك الصفحة أو إنشاء صفحة جديدة.
+
+هل تريد تحديث الصفحة الحالية؟</value>
+    <comment>message box</comment>
   </data>
   <data name="JoinParagraphCommand_Select" xml:space="preserve">
     <value>حدد سطرين أو أكثر للانضمام</value>
@@ -1825,6 +1907,10 @@
   <data name="NetwordConnectionUnavailable" xml:space="preserve">
     <value>اتصال الشبكة غير متوفر</value>
     <comment>error</comment>
+  </data>
+  <data name="NextUnreadPageCommand_nomore" xml:space="preserve">
+    <value>لم يتم العثور على صفحات غير مقروءة في هذا الاتجاه</value>
+    <comment>message</comment>
   </data>
   <data name="NumberingPage_Message" xml:space="preserve">
     <value>صفحة الترقيم {0}</value>
@@ -2057,6 +2143,12 @@
     <value>توصيل في</value>
     <comment>Open File Dialog title</comment>
   </data>
+  <data name="Plugin_trialCompleted" xml:space="preserve">
+    <value>تم الانتهاء من التشغيل التجريبي
+
+ذاكرة التخزين المؤقت: {0}</value>
+    <comment>message</comment>
+  </data>
   <data name="Plugin_Unsuccessful" xml:space="preserve">
     <value>لم يكتمل البرنامج المساعد بنجاح. </value>
     <comment>error message</comment>
@@ -2111,16 +2203,27 @@
   </data>
   <data name="PluginDialog_targetBox.Text" xml:space="preserve">
     <value>الصفحه الحاليه
-دفتر الملاحظات الحالي</value>
+القسم الحالي وصفحاته
+المفكرة الحالية وأقسامها
+دفتر الملاحظات الحالي وصفحاته
+جميع الدفاتر وصفحاتها</value>
     <comment>combobox</comment>
   </data>
   <data name="PluginDialog_timeoutLabel.Text" xml:space="preserve">
     <value>تميوت</value>
     <comment>label</comment>
   </data>
+  <data name="PluginDialog_trialBox.Text" xml:space="preserve">
+    <value>التشغيل التجريبي - احتفظ بملف ذاكرة التخزين المؤقت ولا تقم بتحديث OneNote</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="PluginDialog_updateRadio.Text" xml:space="preserve">
     <value>تحديث الصفحة الحالية</value>
     <comment>radio button</comment>
+  </data>
+  <data name="PluginDialog_userArgsLabel.Text" xml:space="preserve">
+    <value>حجج المستخدم</value>
+    <comment>label</comment>
   </data>
   <data name="PluginsSheet_ConfirmDelete" xml:space="preserve">
     <value>حذف المكون الإضافي "{0}"</value>
@@ -2657,8 +2760,16 @@ ISO-code then comma then language name</comment>
     <value>أوامر الصيغة</value>
     <comment>checkbox</comment>
   </data>
+  <data name="RibbonBarSheet_hashtagsIconBox.Text" xml:space="preserve">
+    <value>إظهار أيقونات أوامر الهاشتاج فقط</value>
+    <comment>settings dialog, ribbon bar options</comment>
+  </data>
+  <data name="RibbonBarSheet_hashtagsRibbonBox.Text" xml:space="preserve">
+    <value>أوامر الهاشتاج</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="RibbonBarSheet_introBox.Text" xml:space="preserve">
-    <value>اختر الأوامر المراد تضمينها في شريط الشريط وما إذا كنت تريد عرض الرموز أو الرموز والتسميات. </value>
+    <value>اختر تجميعًا اختياريًا مُعدًا مسبقًا لإضافته إلى شريط الشريط</value>
     <comment>settings dialog, ribbon bar options</comment>
   </data>
   <data name="RibbonBarSheet_positionBox.Text" xml:space="preserve">
@@ -2729,6 +2840,14 @@ ISO-code then comma then language name</comment>
   <data name="ribCleanMenu_Label" xml:space="preserve">
     <value>نظيف</value>
     <comment>Ribbon OneMore menu item</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Label" xml:space="preserve">
+    <value>تذكيرات نظيفة</value>
+    <comment>ribbon reminders</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Screentip" xml:space="preserve">
+    <value>تنظيف التذكيرات المعطلة في هذه الصفحة</value>
+    <comment>ribbon reminders</comment>
   </data>
   <data name="ribClearBackgroundButton_Label" xml:space="preserve">
     <value>مسح لون الخلفية</value>
@@ -2851,6 +2970,14 @@ ISO-code then comma then language name</comment>
   <data name="ribCopyLinkToParagraphButton_Screentip" xml:space="preserve">
     <value>انسخ ارتباطًا تشعبيًا إلى الفقرة الحالية</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Label" xml:space="preserve">
+    <value>نسخ المحتوى المحدد</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Screentip" xml:space="preserve">
+    <value>انسخ المحتوى المحدد إلى صفحة جديدة</value>
+    <comment>ribbon page</comment>
   </data>
   <data name="ribCrawlWebPageButton_Label" xml:space="preserve">
     <value>استيراد ارتباطات تشعبية</value>
@@ -3071,6 +3198,14 @@ ISO-code then comma then language name</comment>
   <data name="ribGetImagesButton_Screentip" xml:space="preserve">
     <value>تنزيل وإدراج الصور المرجعية</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribHashtaggerButton_Label" xml:space="preserve">
+    <value>إدراج علامات التصنيف</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribHashtaggerButton_Screentip" xml:space="preserve">
+    <value>اختر من قائمة ذكية من الكلمات والعلامات لإدراج علامات التصنيف</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribHighlightButton_Label" xml:space="preserve">
     <value>قلم تمييز دوار</value>
@@ -3380,6 +3515,14 @@ ISO-code then comma then language name</comment>
     <value>نقل الصفحات المحددة إلى أسفل القائمة</value>
     <comment>ribbon page</comment>
   </data>
+  <data name="ribMovePageContentButton_Label" xml:space="preserve">
+    <value>نقل المحتوى المحدد</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribMovePageContentButton_Screentip" xml:space="preserve">
+    <value>نقل المحتوى المحدد إلى صفحة جديدة</value>
+    <comment>ribbon page</comment>
+  </data>
   <data name="ribMovePageTopButton_Label" xml:space="preserve">
     <value>الانتقال إلى الأعلى</value>
     <comment>ribbon page</comment>
@@ -3411,6 +3554,14 @@ ISO-code then comma then language name</comment>
   <data name="ribNewStyleButton_Screentip" xml:space="preserve">
     <value>قم بإنشاء نمط جديد من التحديد الحالي</value>
     <comment>ribbon styles</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Label" xml:space="preserve">
+    <value>الصفحة التالية غير المقروءة</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Screentip" xml:space="preserve">
+    <value>الانتقال إلى الصفحة التالية غير المقروءة</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribNoSpellCheckButton_Screentip" xml:space="preserve">
     <value>تعطيل التدقيق الإملائي للصفحة بأكملها (F4)</value>
@@ -3542,6 +3693,14 @@ ISO-code then comma then language name</comment>
   <data name="ribPreviewMarkdownButton_Screentip" xml:space="preserve">
     <value>معاينة الصفحة أو النص المحدد كتخفيض</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Label" xml:space="preserve">
+    <value>الصفحة السابقة غير المقروءة</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Screentip" xml:space="preserve">
+    <value>الانتقال إلى الصفحة غير المقروءة السابقة</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribPronunciateButton_Label" xml:space="preserve">
     <value>أدخل النطق</value>
@@ -3797,6 +3956,14 @@ ISO-code then comma then language name</comment>
   <data name="ribSelectImagesButton_Screentip" xml:space="preserve">
     <value>حدد كل الصور على الصفحة</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribSelectInkButton_Label" xml:space="preserve">
+    <value>حدد كل الحبر</value>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Screentip" xml:space="preserve">
+    <value>حدد كل الحبر الموجود على الصفحة</value>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectStyleButton_Label" xml:space="preserve">
     <value>حدد نص مشابه</value>
@@ -4832,6 +4999,9 @@ ISO-code then comma then language name</comment>
   <data name="word_Caption" xml:space="preserve">
     <value>التسمية التوضيحية</value>
   </data>
+  <data name="word_Clear" xml:space="preserve">
+    <value>واضح</value>
+  </data>
   <data name="word_Close" xml:space="preserve">
     <value>قريب</value>
   </data>
@@ -4873,6 +5043,9 @@ ISO-code then comma then language name</comment>
   </data>
   <data name="word_Element" xml:space="preserve">
     <value>عنصر</value>
+  </data>
+  <data name="word_Empty" xml:space="preserve">
+    <value>فارغ</value>
   </data>
   <data name="word_Extract" xml:space="preserve">
     <value>يستخرج</value>

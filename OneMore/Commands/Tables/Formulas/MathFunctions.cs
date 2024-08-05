@@ -92,7 +92,12 @@ namespace River.OneMoreAddIn.Commands.Tables.Formulas
 				throw new FormulaException($"countif requires at least two parameters");
 
 			var array = p.ToArray();
-			var values = array.Take(p.Count - 1).ToArray();
+
+			// values are items 0..last-1, ignore empty cells
+			var values = array.Take(p.Count - 1)
+				.Where(p => p.Type != FormulaValueType.String || ((string)p.Value).Length > 0);
+
+			// the countif testcase is always the last parameter
 			var test = array[array.Length - 1];
 
 			var oper = test.ToString()[0];
@@ -110,7 +115,7 @@ namespace River.OneMoreAddIn.Commands.Tables.Formulas
 			}
 
 			FormulaValue expected;
-			if (double.TryParse(s, out var d))
+			if (double.TryParse(s, out var d)) // Culture-specific user input?!
 			{
 				expected = new FormulaValue(d);
 			}
@@ -193,7 +198,7 @@ namespace River.OneMoreAddIn.Commands.Tables.Formulas
 		{
 			var variance = Variance(values);
 
-			if (variance == 0.0)
+			if (variance.EstEquals(0.0, double.Epsilon))
 				return 0.0;
 
 			return Math.Sqrt(variance);

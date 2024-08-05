@@ -486,6 +486,10 @@
     <value>מספר שגוי של פרמטרי פונקציה</value>
     <comment>error</comment>
   </data>
+  <data name="CleanRemindersCommand_count" xml:space="preserve">
+    <value>ניקה {0} תזכורות יתומות</value>
+    <comment>message box</comment>
+  </data>
   <data name="ClearLog_Message" xml:space="preserve">
     <value>לנקות את קובץ היומן עכשיו?</value>
     <comment>message box message</comment>
@@ -1012,6 +1016,9 @@ Total Row Font
   <data name="Error_NoAttachments" xml:space="preserve">
     <value>לא נמצאו קבצים מצורפים בדף</value>
   </data>
+  <data name="Error_SelectContent" xml:space="preserve">
+    <value>בחר תוכן לפני שתמשיך</value>
+  </data>
   <data name="Error_SelectImage" xml:space="preserve">
     <value>בחר תמונה לפני הפעלת פקודה זו</value>
     <comment>error message box</comment>
@@ -1181,10 +1188,11 @@ Total Row Font
 פונקציות: abs, acos, asin, atan, atan2, ממוצע, תקרה, cos, cosh, countif, exp, floor, log, log10, max, mediaan, min, mode, pow, range, round, round, sign, sin, sinh, sqrt, stdev, sum, tan, tanh, trunc, variance
 
 אופרטורים: + - / * ^
+סמלים: PI, E
 הפניה לתא: A1, A2, ... ZZZ999
 טווח תאים: A1:A22
-סמלים: PI, E</value>
-  </data>
+טווח יחסי בעמודה: A1:A-1</value>
+  <comment></comment></data>
   <data name="FormulaDialog_selectedLabel.Text" xml:space="preserve">
     <value>תאים שנבחרו:</value>
     <comment>label</comment>
@@ -1272,6 +1280,10 @@ Total Row Font
     <value>סמן הכל</value>
     <comment>link label</comment>
   </data>
+  <data name="HashtagDialog_hideOfflineMenuItem" xml:space="preserve">
+    <value>הסתר מחברות לא מקוונות</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_introLabel.Text" xml:space="preserve">
     <value>הקלד כל חלק מהאשטאג אחד או יותר. תווים כלליים משתמעים אלא אם כן תג מסתיים בנקודה. מותר להשתמש בסוגריים ואופרטורים לוגיים.</value>
     <comment>label</comment>
@@ -1297,14 +1309,62 @@ Total Row Font
     <comment>menu item</comment>
   </data>
   <data name="HashtagDialog_scopeBox.Text" xml:space="preserve">
-    <value>את כל
+    <value>כל המחברות
 המחברת הזו
 הסעיף הזה</value>
     <comment>combobox</comment>
   </data>
+  <data name="HashtagDialog_sensitiveTip" xml:space="preserve">
+    <value>חיפוש תלוי רישיות</value>
+    <comment>tooltip</comment>
+  </data>
+  <data name="HashtagDialog_showOfflineMenuItem" xml:space="preserve">
+    <value>הצג מחברות לא מקוונות</value>
+    <comment>context menu item</comment>
+  </data>
   <data name="HashtagDialog_uncheckAllLink.Text" xml:space="preserve">
     <value>בטל את הסימון של הכל</value>
     <comment>link label</comment>
+  </data>
+  <data name="HashtaggerDialog.Text" xml:space="preserve">
+    <value>Hashtags</value>
+    <comment>dialog title</comment>
+  </data>
+  <data name="HashtaggerDialog_bankBox.Text" xml:space="preserve">
+    <value>הוסף לבנק התגים בראש הדף</value>
+    <comment>checkbox</comment>
+  </data>
+  <data name="HashtaggerDialog_cloudGroup.Text" xml:space="preserve">
+    <value>כל ההאשטאגים</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_commonGroup.Text" xml:space="preserve">
+    <value>מילים נפוצות בעמוד זה</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_hideCommonMenuItem" xml:space="preserve">
+    <value>הסתר מילים נפוצות</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_hideRecentMenuItem" xml:space="preserve">
+    <value>הסתר בשימוש לאחרונה</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_recentGroup.Text" xml:space="preserve">
+    <value>תגיות בשימוש לאחרונה</value>
+    <comment>groupbox</comment>
+  </data>
+  <data name="HashtaggerDialog_showCommonMenuItem" xml:space="preserve">
+    <value>הצג מילים נפוצות</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_showRecentMenuItem" xml:space="preserve">
+    <value>הצג בשימוש לאחרונה</value>
+    <comment>context menu item text</comment>
+  </data>
+  <data name="HashtaggerDialog_tagsLabel.Text" xml:space="preserve">
+    <value>תגים</value>
+    <comment>label</comment>
   </data>
   <data name="HashtagSheet_disabledBox.Text" xml:space="preserve">
     <value>השבת את שירות ההאשטאג. זה גם ישבית את חיפוש ההאשטאג.</value>
@@ -1324,6 +1384,10 @@ Total Row Font
   </data>
   <data name="HashtagSheet_prescheduled" xml:space="preserve">
     <value>סריקה מתוכננת ל-{0}. השתמש באפשרויות למטה כדי לשנות זאת או לחץ על ביטול כדי לשמור על לוח הזמנים הנוכחי.</value>
+  </data>
+  <data name="HashtagSheet_resetTooltip" xml:space="preserve">
+    <value>מתקדם: אפס את דגל השדרוג</value>
+    <comment>tooltip</comment>
   </data>
   <data name="HashtagSheet_scanNotebooks" xml:space="preserve">
     <value>תזמן סריקה מצטברת של המחברות החדשות שנוספו</value>
@@ -1594,11 +1658,11 @@ Total Row Font
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCNotebook" xml:space="preserve">
-    <value>תוכן עניינים - מחברת {0}</value>
+    <value>תוכן עניינים📓 {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_TOCSections" xml:space="preserve">
-    <value>תוכן עניינים - סעיף {0}</value>
+    <value>תוכן העניינים § {0}</value>
     <comment>page name</comment>
   </data>
   <data name="InsertTocCommand_Top" xml:space="preserve">
@@ -1656,6 +1720,24 @@ Total Row Font
   <data name="InsertTocDialog_topBox.Text" xml:space="preserve">
     <value>הוסף קישור לכל כותרת כדי לדלג לראש העמוד</value>
     <comment>checkbox</comment>
+  </data>
+  <data name="InsertTocForNotebook_RefreshQuestion" xml:space="preserve">
+    <value>למחברת זו יש דף תוכן עניינים. אתה יכול לרענן את הדף או ליצור דף חדש.
+
+האם ברצונך לרענן את העמוד הקיים?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForPage_ClearToc" xml:space="preserve">
+    <value>אין כותרות בעמוד זה. עם זאת, יש תוכן עניינים.
+
+האם תרצה להסיר את תוכן העניינים מדף זה?</value>
+    <comment>message box</comment>
+  </data>
+  <data name="InsertTocForSection_RefreshQuestion" xml:space="preserve">
+    <value>יש דף תוכן לחלק זה. אתה יכול לרענן את הדף או ליצור דף חדש.
+
+האם ברצונך לרענן את העמוד הקיים?</value>
+    <comment>message box</comment>
   </data>
   <data name="JoinParagraphCommand_Select" xml:space="preserve">
     <value>בחר שתי שורות או יותר להצטרפות</value>
@@ -1834,6 +1916,10 @@ Total Row Font
   <data name="NetwordConnectionUnavailable" xml:space="preserve">
     <value>חיבור רשת אינו זמין</value>
     <comment>error</comment>
+  </data>
+  <data name="NextUnreadPageCommand_nomore" xml:space="preserve">
+    <value>לא נמצאו דפים שלא נקראו בכיוון זה</value>
+    <comment>message</comment>
   </data>
   <data name="NumberingPage_Message" xml:space="preserve">
     <value>דף מספור {0}</value>
@@ -2066,6 +2152,12 @@ Total Row Font
     <value>חיבור</value>
     <comment>Open File Dialog title</comment>
   </data>
+  <data name="Plugin_trialCompleted" xml:space="preserve">
+    <value>ריצת הניסיון הושלמה
+
+מטמון: {0}</value>
+    <comment>message</comment>
+  </data>
   <data name="Plugin_Unsuccessful" xml:space="preserve">
     <value>הפלאגין לא הושלם בהצלחה. ראה קובץ יומן.</value>
     <comment>error message</comment>
@@ -2120,16 +2212,27 @@ Total Row Font
   </data>
   <data name="PluginDialog_targetBox.Text" xml:space="preserve">
     <value>העמוד הנוכחי
-מחברת נוכחית</value>
+המדור הנוכחי והעמודים שלו
+המחברת הנוכחית וחלקיה
+המחברת הנוכחית ודפיה
+כל המחברות והדפים שלהן</value>
     <comment>combobox</comment>
   </data>
   <data name="PluginDialog_timeoutLabel.Text" xml:space="preserve">
     <value>Tmeout</value>
     <comment>label</comment>
   </data>
+  <data name="PluginDialog_trialBox.Text" xml:space="preserve">
+    <value>הפעלת ניסיון - שמור קובץ מטמון ואל תעדכן את OneNote</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="PluginDialog_updateRadio.Text" xml:space="preserve">
     <value>עדכן את הדף הנוכחי</value>
     <comment>radio button</comment>
+  </data>
+  <data name="PluginDialog_userArgsLabel.Text" xml:space="preserve">
+    <value>טיעוני משתמש</value>
+    <comment>label</comment>
   </data>
   <data name="PluginsSheet_ConfirmDelete" xml:space="preserve">
     <value>מחק את הפלאגין "{0}"</value>
@@ -2674,8 +2777,16 @@ ISO-code then comma then language name</comment>
     <value>פקודות נוסחה</value>
     <comment>checkbox</comment>
   </data>
+  <data name="RibbonBarSheet_hashtagsIconBox.Text" xml:space="preserve">
+    <value>הצג רק סמלים עבור פקודות האשטאג</value>
+    <comment>settings dialog, ribbon bar options</comment>
+  </data>
+  <data name="RibbonBarSheet_hashtagsRibbonBox.Text" xml:space="preserve">
+    <value>פקודות האשטאג</value>
+    <comment>checkbox</comment>
+  </data>
   <data name="RibbonBarSheet_introBox.Text" xml:space="preserve">
-    <value>בחר אילו פקודות לכלול בסרגל הסרט והאם להציג סמלים או סמלים ותוויות. הפעל מחדש את OneNote כדי לראות שינויים.</value>
+    <value>בחר קיבוץ מוגדר מראש אופציונלי כדי להוסיף לסרגל רצועת הכלים</value>
     <comment>settings dialog, ribbon bar options</comment>
   </data>
   <data name="RibbonBarSheet_positionBox.Text" xml:space="preserve">
@@ -2746,6 +2857,14 @@ ISO-code then comma then language name</comment>
   <data name="ribCleanMenu_Label" xml:space="preserve">
     <value>לְנַקוֹת</value>
     <comment>Ribbon OneMore menu item</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Label" xml:space="preserve">
+    <value>תזכורות נקיות</value>
+    <comment>ribbon reminders</comment>
+  </data>
+  <data name="ribCleanRemindersButton_Screentip" xml:space="preserve">
+    <value>נקה תזכורות שבורות בדף זה</value>
+    <comment>ribbon reminders</comment>
   </data>
   <data name="ribClearBackgroundButton_Label" xml:space="preserve">
     <value>צבע רקע ברור</value>
@@ -2870,6 +2989,14 @@ ISO-code then comma then language name</comment>
   <data name="ribCopyLinkToParagraphButton_Screentip" xml:space="preserve">
     <value>העתק היפר -קישור לפסקה הנוכחית</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Label" xml:space="preserve">
+    <value>העתק תוכן נבחר</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribCopyPageContentButton_Screentip" xml:space="preserve">
+    <value>העתק תוכן נבחר לדף חדש</value>
+    <comment>ribbon page</comment>
   </data>
   <data name="ribCrawlWebPageButton_Label" xml:space="preserve">
     <value>ייבוא ​​היפר-קישורים</value>
@@ -3090,6 +3217,14 @@ ISO-code then comma then language name</comment>
   <data name="ribGetImagesButton_Screentip" xml:space="preserve">
     <value>הורד והכניס תמונות שהוזכרו</value>
     <comment>ribbon references</comment>
+  </data>
+  <data name="ribHashtaggerButton_Label" xml:space="preserve">
+    <value>הכנס Hashtags</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribHashtaggerButton_Screentip" xml:space="preserve">
+    <value>בחר מתוך רשימה חכמה של מילים ותגיות כדי להוסיף hashtags</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribHighlightButton_Label" xml:space="preserve">
     <value>סימון מסתובב</value>
@@ -3399,6 +3534,14 @@ ISO-code then comma then language name</comment>
     <value>העבר את הדפים שנבחרו לתחתית הרשימה</value>
     <comment>ribbon page</comment>
   </data>
+  <data name="ribMovePageContentButton_Label" xml:space="preserve">
+    <value>העבר תוכן נבחר</value>
+    <comment>ribbon page</comment>
+  </data>
+  <data name="ribMovePageContentButton_Screentip" xml:space="preserve">
+    <value>העבר תוכן נבחר לעמוד חדש</value>
+    <comment>ribbon page</comment>
+  </data>
   <data name="ribMovePageTopButton_Label" xml:space="preserve">
     <value>העבר לראש הדף</value>
     <comment>ribbon page</comment>
@@ -3430,6 +3573,14 @@ ISO-code then comma then language name</comment>
   <data name="ribNewStyleButton_Screentip" xml:space="preserve">
     <value>צור סגנון חדש מהבחירה הנוכחית</value>
     <comment>ribbon styles</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Label" xml:space="preserve">
+    <value>העמוד הבא שלא נקרא</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribNextUnreadPageButton_Screentip" xml:space="preserve">
+    <value>עבור לדף הבא שלא נקרא</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribNoSpellCheckButton_Screentip" xml:space="preserve">
     <value>השבת את בדיקת האיות עבור כל העמוד (F4)</value>
@@ -3553,6 +3704,14 @@ ISO-code then comma then language name</comment>
   <data name="ribPreviewMarkdownButton_Screentip" xml:space="preserve">
     <value>תצוגה מקדימה של דף או טקסט שנבחר כסימון</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Label" xml:space="preserve">
+    <value>הדף הקודם שלא נקרא</value>
+    <comment>ribbon search</comment>
+  </data>
+  <data name="ribPreviousUnreadPageButton_Screentip" xml:space="preserve">
+    <value>עבור לדף הקודם שלא נקרא</value>
+    <comment>ribbon search</comment>
   </data>
   <data name="ribPronunciateButton_Label" xml:space="preserve">
     <value>הכנס הגייה</value>
@@ -3808,6 +3967,14 @@ ISO-code then comma then language name</comment>
   <data name="ribSelectImagesButton_Screentip" xml:space="preserve">
     <value>בחר את כל התמונות בדף</value>
     <comment>ribbon edit</comment>
+  </data>
+  <data name="ribSelectInkButton_Label" xml:space="preserve">
+    <value>בחר All Ink</value>
+    <comment>ribbon images</comment>
+  </data>
+  <data name="ribSelectInkButton_Screentip" xml:space="preserve">
+    <value>בחר את כל הדיו בדף</value>
+    <comment>ribbon images</comment>
   </data>
   <data name="ribSelectStyleButton_Label" xml:space="preserve">
     <value>בחר טקסט עם עיצוב דומה</value>
@@ -4847,6 +5014,9 @@ ISO-code then comma then language name</comment>
   <data name="word_Caption" xml:space="preserve">
     <value>כּוֹתֶרֶת</value>
   </data>
+  <data name="word_Clear" xml:space="preserve">
+    <value>ברור</value>
+  </data>
   <data name="word_Close" xml:space="preserve">
     <value>סגור</value>
   </data>
@@ -4888,6 +5058,9 @@ ISO-code then comma then language name</comment>
   </data>
   <data name="word_Element" xml:space="preserve">
     <value>אֵלֵמֶנט</value>
+  </data>
+  <data name="word_Empty" xml:space="preserve">
+    <value>ריק</value>
   </data>
   <data name="word_Extract" xml:space="preserve">
     <value>לחלץ</value>
